@@ -1,0 +1,2288 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Mon site agrégateur de docs orienté DevOps/AdminSYS">
+      
+      
+        <link rel="canonical" href="https:///AdminSys/bdd/generalite/">
+      
+      
+        <meta name="author" content="Anas Asmi">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
+      
+        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
+      
+        <meta name="lang:search.language" content="fr">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Aucun document trouvé">
+      
+        <meta name="lang:search.result.one" content="1 document trouvé">
+      
+        <meta name="lang:search.result.other" content="# documents trouvés">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+    
+    
+      
+        <title>Serveur de données - Anasme's Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette:300,400,400i,700|Quicksand">
+        <style>body,input{font-family:"Courgette","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Quicksand","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#serveur-de-donnees" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://" title="Anasme's Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">fingerprint</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Anasme's Docs
+              </span>
+              <span class="md-header-nav__topic">
+                Serveur de données
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Taper pour démarrer la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Anasme/docs/" title="Aller au dépôt" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      anasme/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." title="Welcome to anasme's doc !" class="md-tabs__link">
+        Welcome to anasme's doc !
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../hardening/" title="AdminSys" class="md-tabs__link md-tabs__link--active">
+          AdminSys
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Code/bash/" title="Code" class="md-tabs__link">
+          Code
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../DevOps/ansible/" title="DevOps" class="md-tabs__link">
+          DevOps
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://" title="Anasme's Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">fingerprint</i>
+      
+    </a>
+    Anasme's Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Anasme/docs/" title="Aller au dépôt" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      anasme/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome to anasme's doc !" class="md-nav__link">
+      Welcome to anasme's doc !
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      AdminSys
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        AdminSys
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hardening/" title="Hardening" class="md-nav__link">
+      Hardening
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Bdd
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Bdd
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Serveur de données
+      </label>
+    
+    <a href="./" title="Serveur de données" class="md-nav__link md-nav__link--active">
+      Serveur de données
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#environnement-reseau" title="Environnement réseau" class="md-nav__link">
+    Environnement réseau
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-ne-pas-faire" title="à ne pas faire* :" class="md-nav__link">
+    à ne pas faire* :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-ne-pas-faire-non-plus" title="à ne pas faire non plus :" class="md-nav__link">
+    à ne pas faire non plus :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bien-de-faire" title="bien de faire :" class="md-nav__link">
+    bien de faire :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meilleur-chose-a-faire" title="meilleur chose à faire :" class="md-nav__link">
+    meilleur chose à faire :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-mysql" title="Configuration MySQL" class="md-nav__link">
+    Configuration MySQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-de-configuration" title="Le fichier de configuration" class="md-nav__link">
+    Le fichier de configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grandes-lignes-mycnf" title="grandes lignes my.cnf" class="md-nav__link">
+    grandes lignes my.cnf
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fichier-de-log" title="Fichier de log" class="md-nav__link">
+    Fichier de log
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changer-le-repertoire-de-logs-myqsl" title="Changer le répertoire de logs MyQSL" class="md-nav__link">
+    Changer le répertoire de logs MyQSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-directive-bind-address" title="La directive bind-address" class="md-nav__link">
+    La directive bind-address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securisation-du-service-mysql" title="Sécurisation du service MySQL" class="md-nav__link">
+    Sécurisation du service MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commandes-mysql-base" title="Commandes MySQL (base)" class="md-nav__link">
+    Commandes MySQL (base)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#se-connecter" title="Se connecter" class="md-nav__link">
+    Se connecter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lister-les-bases" title="Lister les bases" class="md-nav__link">
+    Lister les bases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selectionner-une-base" title="Selectionner une base" class="md-nav__link">
+    Selectionner une base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lister-les-tables-dune-base" title="Lister les tables d'une base" class="md-nav__link">
+    Lister les tables d'une base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-une-base" title="Créer une base" class="md-nav__link">
+    Créer une base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-utilisateur" title="Créer un utilisateur" class="md-nav__link">
+    Créer un utilisateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affecter-une-mot-de-passe-a-un-utilisateur" title="Affecter une mot de passe à un utilisateur" class="md-nav__link">
+    Affecter une mot de passe à un utilisateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donner-tout-les-droits-a-un-utilisateur-sur-un-bd-voir-les-privileges-pour-les-types-de-droits" title="Donner tout les droits à un utilisateur sur un BD (voir "Les privilèges" pour les types de droits)" class="md-nav__link">
+    Donner tout les droits à un utilisateur sur un BD (voir "Les privilèges" pour les types de droits)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revoquer-les-droits-dun-utilisateur" title="Revoquer les droits d'un utilisateur" class="md-nav__link">
+    Revoquer les droits d'un utilisateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supprimer-un-compte-utilisateur" title="Supprimer un compte utilisateur" class="md-nav__link">
+    Supprimer un compte utilisateur
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-privileges-droits" title="Les privilèges (droits)" class="md-nav__link">
+    Les privilèges (droits)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#droits-principaux" title="Droits principaux" class="md-nav__link">
+    Droits principaux
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-tp-mysql" title="exemple (tp mysql) :" class="md-nav__link">
+    exemple (tp mysql) :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supervision-et-tuning-mysql" title="Supervision et "tuning" MySQL" class="md-nav__link">
+    Supervision et "tuning" MySQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysqltuner" title="MySQLTuner :" class="md-nav__link">
+    MySQLTuner :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mytop" title="Mytop" class="md-nav__link">
+    Mytop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning" title="Tuning :" class="md-nav__link">
+    Tuning :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sauvegarde-et-restauration" title="Sauvegarde et restauration" class="md-nav__link">
+    Sauvegarde et restauration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-a-chaud" title="backup à chaud" class="md-nav__link">
+    backup à chaud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-a-froid" title="backup à froid :" class="md-nav__link">
+    backup à froid :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restauration" title="Restauration" class="md-nav__link">
+    Restauration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatisation-des-sauvegardes" title="Automatisation des sauvegardes" class="md-nav__link">
+    Automatisation des sauvegardes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automysqlbackup-script-tout-en-un" title="automysqlbackup, Script "tout en un" :" class="md-nav__link">
+    automysqlbackup, Script "tout en un" :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsnapshot" title="rsnapshot :" class="md-nav__link">
+    rsnapshot :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outil-backup-a-chaud" title="outil backup à chaud :" class="md-nav__link">
+    outil backup à chaud :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-mysql-vers-mariadb-deb9" title="Migration Mysql vers MariaDB (deb&lt;9)" class="md-nav__link">
+    Migration Mysql vers MariaDB (deb&lt;9)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluser-mariadbgalera" title="Cluser MariaDB/Galera" class="md-nav__link">
+    Cluser MariaDB/Galera
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshoot" title="Troubleshoot" class="md-nav__link">
+    Troubleshoot
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-corrompue" title="Table corrompue" class="md-nav__link">
+    Table corrompue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recuperation-de-mot-de-passe-root-mysql" title="Récupération de mot de passe root MySQL" class="md-nav__link">
+    Récupération de mot de passe root MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql" title="PostgreSQL" class="md-nav__link">
+    PostgreSQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commande" title="Commande" class="md-nav__link">
+    Commande
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administration-web-voir-section-lamp-pour-linstallation" title="Administration web (voir section LAMP pour l'installation) :" class="md-nav__link">
+    Administration web (voir section LAMP pour l'installation) :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-streaming-postgressql" title="Réplication "streaming" PostgresSQL" class="md-nav__link">
+    Réplication "streaming" PostgresSQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequis" title="Prérequis" class="md-nav__link">
+    Prérequis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serveur-maitre" title="Serveur maître :" class="md-nav__link">
+    Serveur maître :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-escalve" title="Server escalve :" class="md-nav__link">
+    Server escalve :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshoot_1" title="Troubleshoot" class="md-nav__link">
+    Troubleshoot
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recuperation-de-mot-de-passe-oublie" title="Récupération de mot de passe oublié" class="md-nav__link">
+    Récupération de mot de passe oublié
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning_1" title="Tuning" class="md-nav__link">
+    Tuning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup" title="Backup" class="md-nav__link">
+    Backup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Code/bash/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Code/python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      DevOps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        DevOps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DevOps/ansible/" title="Ansible" class="md-nav__link">
+      Ansible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#environnement-reseau" title="Environnement réseau" class="md-nav__link">
+    Environnement réseau
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-ne-pas-faire" title="à ne pas faire* :" class="md-nav__link">
+    à ne pas faire* :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-ne-pas-faire-non-plus" title="à ne pas faire non plus :" class="md-nav__link">
+    à ne pas faire non plus :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bien-de-faire" title="bien de faire :" class="md-nav__link">
+    bien de faire :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meilleur-chose-a-faire" title="meilleur chose à faire :" class="md-nav__link">
+    meilleur chose à faire :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-mysql" title="Configuration MySQL" class="md-nav__link">
+    Configuration MySQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-de-configuration" title="Le fichier de configuration" class="md-nav__link">
+    Le fichier de configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grandes-lignes-mycnf" title="grandes lignes my.cnf" class="md-nav__link">
+    grandes lignes my.cnf
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fichier-de-log" title="Fichier de log" class="md-nav__link">
+    Fichier de log
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changer-le-repertoire-de-logs-myqsl" title="Changer le répertoire de logs MyQSL" class="md-nav__link">
+    Changer le répertoire de logs MyQSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-directive-bind-address" title="La directive bind-address" class="md-nav__link">
+    La directive bind-address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securisation-du-service-mysql" title="Sécurisation du service MySQL" class="md-nav__link">
+    Sécurisation du service MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commandes-mysql-base" title="Commandes MySQL (base)" class="md-nav__link">
+    Commandes MySQL (base)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#se-connecter" title="Se connecter" class="md-nav__link">
+    Se connecter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lister-les-bases" title="Lister les bases" class="md-nav__link">
+    Lister les bases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selectionner-une-base" title="Selectionner une base" class="md-nav__link">
+    Selectionner une base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lister-les-tables-dune-base" title="Lister les tables d'une base" class="md-nav__link">
+    Lister les tables d'une base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-une-base" title="Créer une base" class="md-nav__link">
+    Créer une base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-utilisateur" title="Créer un utilisateur" class="md-nav__link">
+    Créer un utilisateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affecter-une-mot-de-passe-a-un-utilisateur" title="Affecter une mot de passe à un utilisateur" class="md-nav__link">
+    Affecter une mot de passe à un utilisateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donner-tout-les-droits-a-un-utilisateur-sur-un-bd-voir-les-privileges-pour-les-types-de-droits" title="Donner tout les droits à un utilisateur sur un BD (voir "Les privilèges" pour les types de droits)" class="md-nav__link">
+    Donner tout les droits à un utilisateur sur un BD (voir "Les privilèges" pour les types de droits)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revoquer-les-droits-dun-utilisateur" title="Revoquer les droits d'un utilisateur" class="md-nav__link">
+    Revoquer les droits d'un utilisateur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supprimer-un-compte-utilisateur" title="Supprimer un compte utilisateur" class="md-nav__link">
+    Supprimer un compte utilisateur
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-privileges-droits" title="Les privilèges (droits)" class="md-nav__link">
+    Les privilèges (droits)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#droits-principaux" title="Droits principaux" class="md-nav__link">
+    Droits principaux
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-tp-mysql" title="exemple (tp mysql) :" class="md-nav__link">
+    exemple (tp mysql) :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supervision-et-tuning-mysql" title="Supervision et "tuning" MySQL" class="md-nav__link">
+    Supervision et "tuning" MySQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysqltuner" title="MySQLTuner :" class="md-nav__link">
+    MySQLTuner :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mytop" title="Mytop" class="md-nav__link">
+    Mytop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning" title="Tuning :" class="md-nav__link">
+    Tuning :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sauvegarde-et-restauration" title="Sauvegarde et restauration" class="md-nav__link">
+    Sauvegarde et restauration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-a-chaud" title="backup à chaud" class="md-nav__link">
+    backup à chaud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-a-froid" title="backup à froid :" class="md-nav__link">
+    backup à froid :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restauration" title="Restauration" class="md-nav__link">
+    Restauration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatisation-des-sauvegardes" title="Automatisation des sauvegardes" class="md-nav__link">
+    Automatisation des sauvegardes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automysqlbackup-script-tout-en-un" title="automysqlbackup, Script "tout en un" :" class="md-nav__link">
+    automysqlbackup, Script "tout en un" :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsnapshot" title="rsnapshot :" class="md-nav__link">
+    rsnapshot :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outil-backup-a-chaud" title="outil backup à chaud :" class="md-nav__link">
+    outil backup à chaud :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-mysql-vers-mariadb-deb9" title="Migration Mysql vers MariaDB (deb&lt;9)" class="md-nav__link">
+    Migration Mysql vers MariaDB (deb&lt;9)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluser-mariadbgalera" title="Cluser MariaDB/Galera" class="md-nav__link">
+    Cluser MariaDB/Galera
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshoot" title="Troubleshoot" class="md-nav__link">
+    Troubleshoot
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-corrompue" title="Table corrompue" class="md-nav__link">
+    Table corrompue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recuperation-de-mot-de-passe-root-mysql" title="Récupération de mot de passe root MySQL" class="md-nav__link">
+    Récupération de mot de passe root MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql" title="PostgreSQL" class="md-nav__link">
+    PostgreSQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commande" title="Commande" class="md-nav__link">
+    Commande
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administration-web-voir-section-lamp-pour-linstallation" title="Administration web (voir section LAMP pour l'installation) :" class="md-nav__link">
+    Administration web (voir section LAMP pour l'installation) :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-streaming-postgressql" title="Réplication "streaming" PostgresSQL" class="md-nav__link">
+    Réplication "streaming" PostgresSQL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequis" title="Prérequis" class="md-nav__link">
+    Prérequis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serveur-maitre" title="Serveur maître :" class="md-nav__link">
+    Serveur maître :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-escalve" title="Server escalve :" class="md-nav__link">
+    Server escalve :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshoot_1" title="Troubleshoot" class="md-nav__link">
+    Troubleshoot
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recuperation-de-mot-de-passe-oublie" title="Récupération de mot de passe oublié" class="md-nav__link">
+    Récupération de mot de passe oublié
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning_1" title="Tuning" class="md-nav__link">
+    Tuning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup" title="Backup" class="md-nav__link">
+    Backup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Anasme/docs/edit/master/docs/AdminSys/bdd/generalite.md" title="Editer cette page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="serveur-de-donnees">Serveur de données<a class="headerlink" href="#serveur-de-donnees" title="Permanent link">&para;</a></h1>
+<div class="toc">
+<ul>
+<li><a href="#serveur-de-donnees">Serveur de données</a><ul>
+<li><a href="#environnement-reseau">Environnement réseau</a><ul>
+<li><a href="#a-ne-pas-faire">à ne pas faire* :</a></li>
+<li><a href="#a-ne-pas-faire-non-plus">à ne pas faire non plus :</a></li>
+<li><a href="#bien-de-faire">bien de faire :</a></li>
+<li><a href="#meilleur-chose-a-faire">meilleur chose à faire :</a></li>
+</ul>
+</li>
+<li><a href="#configuration-mysql">Configuration MySQL</a><ul>
+<li><a href="#le-fichier-de-configuration">Le fichier de configuration</a><ul>
+<li><a href="#grandes-lignes-mycnf">grandes lignes my.cnf</a></li>
+</ul>
+</li>
+<li><a href="#fichier-de-log">Fichier de log</a><ul>
+<li><a href="#changer-le-repertoire-de-logs-myqsl">Changer le répertoire de logs MyQSL</a></li>
+<li><a href="#la-directive-bind-address">La directive bind-address</a></li>
+<li><a href="#securisation-du-service-mysql">Sécurisation du service MySQL</a></li>
+</ul>
+</li>
+<li><a href="#commandes-mysql-base">Commandes MySQL (base)</a><ul>
+<li><a href="#se-connecter">Se connecter</a></li>
+<li><a href="#lister-les-bases">Lister les bases</a></li>
+<li><a href="#selectionner-une-base">Selectionner une base</a></li>
+<li><a href="#lister-les-tables-dune-base">Lister les tables d'une base</a></li>
+<li><a href="#creer-une-base">Créer une base</a></li>
+<li><a href="#creer-un-utilisateur">Créer un utilisateur</a></li>
+<li><a href="#affecter-une-mot-de-passe-a-un-utilisateur">Affecter une mot de passe à un utilisateur</a></li>
+<li><a href="#donner-tout-les-droits-a-un-utilisateur-sur-un-bd-voir-les-privileges-pour-les-types-de-droits">Donner tout les droits à un utilisateur sur un BD (voir "Les privilèges" pour les types de droits)</a></li>
+<li><a href="#revoquer-les-droits-dun-utilisateur">Revoquer les droits d'un utilisateur</a></li>
+<li><a href="#supprimer-un-compte-utilisateur">Supprimer un compte utilisateur</a></li>
+</ul>
+</li>
+<li><a href="#les-privileges-droits">Les privilèges (droits)</a><ul>
+<li><a href="#droits-principaux">Droits principaux</a><ul>
+<li><a href="#exemple-tp-mysql">exemple (tp mysql) :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#supervision-et-tuning-mysql">Supervision et "tuning" MySQL</a><ul>
+<li><a href="#mysqltuner">MySQLTuner :</a></li>
+<li><a href="#mytop">Mytop</a></li>
+<li><a href="#tuning">Tuning :</a></li>
+</ul>
+</li>
+<li><a href="#sauvegarde-et-restauration">Sauvegarde et restauration</a><ul>
+<li><a href="#backup-a-chaud">backup à chaud</a></li>
+<li><a href="#backup-a-froid">backup à froid :</a></li>
+<li><a href="#restauration">Restauration</a></li>
+<li><a href="#automatisation-des-sauvegardes">Automatisation des sauvegardes</a><ul>
+<li><a href="#automysqlbackup-script-tout-en-un">automysqlbackup, Script "tout en un" :</a></li>
+<li><a href="#rsnapshot">rsnapshot :</a></li>
+<li><a href="#outil-backup-a-chaud">outil backup à chaud :</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#migration-mysql-vers-mariadb-deb9">Migration Mysql vers MariaDB (deb&lt;9)</a></li>
+<li><a href="#cluser-mariadbgalera">Cluser MariaDB/Galera</a></li>
+<li><a href="#troubleshoot">Troubleshoot</a><ul>
+<li><a href="#table-corrompue">Table corrompue</a></li>
+<li><a href="#recuperation-de-mot-de-passe-root-mysql">Récupération de mot de passe root MySQL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#postgresql">PostgreSQL</a><ul>
+<li><a href="#commande">Commande</a></li>
+<li><a href="#administration-web-voir-section-lamp-pour-linstallation">Administration web (voir section LAMP pour l'installation) :</a></li>
+<li><a href="#replication-streaming-postgressql">Réplication "streaming" PostgresSQL</a><ul>
+<li><a href="#prerequis">Prérequis</a></li>
+<li><a href="#serveur-maitre">Serveur maître :</a></li>
+<li><a href="#server-escalve">Server escalve :</a></li>
+</ul>
+</li>
+<li><a href="#troubleshoot_1">Troubleshoot</a><ul>
+<li><a href="#recuperation-de-mot-de-passe-oublie">Récupération de mot de passe oublié</a></li>
+</ul>
+</li>
+<li><a href="#tuning_1">Tuning</a></li>
+<li><a href="#backup">Backup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="environnement-reseau">Environnement réseau<a class="headerlink" href="#environnement-reseau" title="Permanent link">&para;</a></h2>
+<p>La base de donné est un élement critique et sensible d'un architecture pour ces 2 raisons:</p>
+<blockquote>
+<ul>
+<li>Il n'est pas conçu pour se protéger efficacement des attaques</li>
+<li>il contient des données, c'est à dire la seule information pérenne dans notre architecture</li>
+</ul>
+</blockquote>
+<p>C'est pou cela qu'il faut l'isoler au maximum : </p>
+<h3 id="a-ne-pas-faire"><em>à ne pas faire*</em> :<a class="headerlink" href="#a-ne-pas-faire" title="Permanent link">&para;</a></h3>
+<p><img alt="https://anasme.github.io/images/DMZ_nottodo.png" src="https://anasme.github.io/images/DMZ_nottodo.png" /></p>
+<ul>
+<li>
+<h3 id="a-ne-pas-faire-non-plus"><strong>à ne pas faire non plus</strong> :<a class="headerlink" href="#a-ne-pas-faire-non-plus" title="Permanent link">&para;</a></h3>
+</li>
+</ul>
+<p><img alt="https://anasme.github.io/images/DMZ_nottodo.png" src="https://anasme.github.io/images/DMZ_nottodotoo.png" /></p>
+<ul>
+<li>
+<h3 id="bien-de-faire"><strong>bien de faire</strong> :<a class="headerlink" href="#bien-de-faire" title="Permanent link">&para;</a></h3>
+</li>
+</ul>
+<p><img alt="img" src="https://anasme.github.io/images/Untitled%20Diagram.png" /></p>
+<ul>
+<li>
+<h3 id="meilleur-chose-a-faire"><strong>meilleur chose à faire</strong> :<a class="headerlink" href="#meilleur-chose-a-faire" title="Permanent link">&para;</a></h3>
+</li>
+</ul>
+<p><img alt="img" src="https://anasme.github.io/images/besttopdo.png" /></p>
+<h2 id="configuration-mysql">Configuration MySQL<a class="headerlink" href="#configuration-mysql" title="Permanent link">&para;</a></h2>
+<h3 id="le-fichier-de-configuration">Le fichier de configuration<a class="headerlink" href="#le-fichier-de-configuration" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>le fichier de configuration est le fichier <strong>my.cnf</strong> qui se trouve habituellement dans <strong>/etc/mysql/</strong> sinon dans <strong>/etc/mysql/mariadb.conf.d</strong> pour mariaDB</p>
+</blockquote>
+<h5 id="grandes-lignes-mycnf">grandes lignes my.cnf<a class="headerlink" href="#grandes-lignes-mycnf" title="Permanent link">&para;</a></h5>
+<ul>
+<li>le port d'écoute de <strong>MySQLd</strong> : qui est le port <strong>3306</strong></li>
+<li>différents dossiers utilisés par <strong>MySQLd</strong></li>
+<li>le nom d'utilisateur des processus de <strong>MySQLd</strong> (qui est <strong>mysql</strong>)</li>
+<li>des paramètres liés à la performance (taille mémoire allouée, taille du cache ...) ou à <a href="https://elearning.u-pem.fr/mod/book/view.php?id=37531">la configuration</a> fine de moteurs isam, innodb</li>
+<li>les fichiers de log </li>
+</ul>
+<h3 id="fichier-de-log">Fichier de log<a class="headerlink" href="#fichier-de-log" title="Permanent link">&para;</a></h3>
+<p>dans my.cnf décommenter :</p>
+<ul>
+<li>general_log_file        = /var/log/mysql/mysql.log</li>
+<li>general_log             = 1</li>
+</ul>
+<p><img alt="⚠️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/26a0.svg" title=":warning:" /> logs très utiles mais consommateurs de ressources <img alt="➡️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/27a1.svg" title=":arrow_right:" /> tueurs de perfs.</p>
+<p><img alt="↪️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/21aa.svg" title=":arrow_right_hook:" /> ne pas hesiter à les activer pour du test mais désactiver en production !</p>
+<h5 id="changer-le-repertoire-de-logs-myqsl">Changer le répertoire de logs MyQSL<a class="headerlink" href="#changer-le-repertoire-de-logs-myqsl" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>Nécessaire si trop d'IO sur le disque (log + datas)</p>
+</blockquote>
+<p>my.cnf : </p>
+<ul>
+<li>log-bin=/'chemindunouveaurépertoire'/mysql-bin </li>
+</ul>
+<p><img alt="ℹ️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/2139.svg" title=":information_source:" /> Purger un maximum de logs (PURGE BINLOG...) pour ne pas avoir trop de fichiers à transférer.</p>
+<p>Arrêter le service :</p>
+<div class="codehilite"><pre><span></span>service mysql stop
+</pre></div>
+
+<ul>
+<li>Déplacer les fichiers vers le nouveau répertoire :</li>
+</ul>
+<div class="codehilite"><pre><span></span>mv /var/lib/mysql /mysql-bin.* /chemindunouveaurépertoire/mysql-bin
+</pre></div>
+
+<ul>
+<li>Redémarrer le service</li>
+</ul>
+<div class="codehilite"><pre><span></span> service mysql start
+</pre></div>
+
+<h4 id="la-directive-bind-address">La directive bind-address<a class="headerlink" href="#la-directive-bind-address" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Cette directive sert à restreindre l'accès au service MySQLd. Seule la machine (et donc les logiciels outils installés dessus) indiquée dans cette directive peut accéder au service.</p>
+</blockquote>
+<p>Si on veut accéder que par la machine local (localhost) :</p>
+<div class="codehilite"><pre><span></span>bind-address <span class="o">=</span> <span class="m">127</span>.0.0.1
+</pre></div>
+
+<p>Si on veut uniquement un serveur distant : </p>
+<div class="codehilite"><pre><span></span>bind-address <span class="o">=</span> <span class="s2">&quot;ip du serveur&quot;</span>
+</pre></div>
+
+<p>Si on veut ouvrir à tous les serveurs : </p>
+<div class="codehilite"><pre><span></span>bind-address <span class="o">=</span> <span class="m">0</span>.0.0.0
+</pre></div>
+
+<p>ℹ️ Il n'y a pas de demie mesure, la sécurisation doit se faire en amont pour les serveur de données.</p>
+<h4 id="securisation-du-service-mysql">Sécurisation du service MySQL<a class="headerlink" href="#securisation-du-service-mysql" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1">#mysql_secure_installation</span>
+</pre></div>
+
+<p>Cela permet de : • s'assurer de bien avoir un mot de passe root MySQL • empêcher d'accéder en root MySQL depuis le réseau (par le socket MySQL ; par contre on accède à distance par SSH et ensuite on se connecte à SQL une fois rentré dans la machine donc en « local ». • empêcher les connexions anonymes • supprimer la base de test (accessible par défaut par tous, même anonymes) et les privilèges qui autorisent tout le monde à accéder à toutes les bases commençant par test_</p>
+<h3 id="commandes-mysql-base">Commandes MySQL (base)<a class="headerlink" href="#commandes-mysql-base" title="Permanent link">&para;</a></h3>
+<h5 id="se-connecter">Se connecter<a class="headerlink" href="#se-connecter" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span>mysql -h <span class="s1">&#39;host &#39;</span>-u <span class="s1">&#39;user&#39;</span> -p 
+</pre></div>
+
+<p>mysql -h localhost -u root -p</p>
+<ul>
+<li>
+<ul>
+<li>-h premet de préciser l'hôte (host)</li>
+</ul>
+</li>
+<li>-u permet de préciser l'utilisateur (user)</li>
+<li>-p indique que nous allons ensuite taper le mot de passe (password)</li>
+</ul>
+<h5 id="lister-les-bases">Lister les bases<a class="headerlink" href="#lister-les-bases" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="k">DATABASES</span><span class="p">;</span>
+</pre></div>
+
+<h5 id="selectionner-une-base">Selectionner une base<a class="headerlink" href="#selectionner-une-base" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="k">USE</span> <span class="s2">&quot;nom de la bdd&quot;</span><span class="p">;</span>
+</pre></div>
+
+<h5 id="lister-les-tables-dune-base">Lister les tables d'une base<a class="headerlink" href="#lister-les-tables-dune-base" title="Permanent link">&para;</a></h5>
+<ul>
+<li>si base selectionné</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="kp">TABLES</span><span class="p">;</span>
+</pre></div>
+- sinon</p>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="kp">TABLES</span> <span class="k">FROM</span> <span class="s2">&quot;nom de la bdd&quot;</span><span class="p">;</span>
+</pre></div>
+
+<h5 id="creer-une-base">Créer une base<a class="headerlink" href="#creer-une-base" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="s2">&quot;nom bdd&quot;</span><span class="p">;</span>
+</pre></div>
+
+<h5 id="creer-un-utilisateur">Créer un utilisateur<a class="headerlink" href="#creer-un-utilisateur" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="n">USER</span> <span class="s1">&#39;user&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</pre></div>
+
+<h5 id="affecter-une-mot-de-passe-a-un-utilisateur">Affecter une mot de passe à un utilisateur<a class="headerlink" href="#affecter-une-mot-de-passe-a-un-utilisateur" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="kt">SET</span> <span class="n">PASSWORD</span> <span class="k">FOR</span> <span class="s1">&#39;user&#39;</span> <span class="o">=</span> <span class="nf">PASSWORD</span><span class="p">(</span><span class="s1">&#39;mot de passe&#39;</span><span class="p">);</span>
+</pre></div>
+
+<h5 id="donner-tout-les-droits-a-un-utilisateur-sur-un-bd-voir-les-privileges-pour-les-types-de-droits">Donner tout les droits à un utilisateur sur un BD (voir "Les privilèges" pour les types de droits)<a class="headerlink" href="#donner-tout-les-droits-a-un-utilisateur-sur-un-bd-voir-les-privileges-pour-les-types-de-droits" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="s1">&#39;BASE.*&#39;</span> <span class="k">TO</span> <span class="n">user</span><span class="o">@</span><span class="n">localhost</span> <span class="n">IDENTIFIED</span> <span class="k">by</span> <span class="s1">&#39;mot de passe&#39;</span><span class="p">;</span>
+</pre></div>
+
+<h5 id="revoquer-les-droits-dun-utilisateur">Revoquer les droits d'un utilisateur<a class="headerlink" href="#revoquer-les-droits-dun-utilisateur" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="k">REVOKE</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="s1">&#39;BASE.*&#39;</span> <span class="k">FROM</span> <span class="n">user</span><span class="p">;</span>
+</pre></div>
+
+<h5 id="supprimer-un-compte-utilisateur">Supprimer un compte utilisateur<a class="headerlink" href="#supprimer-un-compte-utilisateur" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="k">DROP</span> <span class="n">user</span> <span class="s1">&#39;test&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</pre></div>
+
+<h3 id="les-privileges-droits">Les privilèges (droits)<a class="headerlink" href="#les-privileges-droits" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>En matière de bases de données, on parle de <strong><em>privilèges</em></strong> pour parler des <em>droits</em>. Ces privilèges s'appliquent à des comptes. Tel compte à le droit de faire telle action.</p>
+</blockquote>
+<p>Les information des utilisateurs et des privilèges sont stockées dans la base de données mysql :</p>
+<ul>
+<li>table user ➡️ utilisateurs(privilèges globaux) </li>
+</ul>
+<p>**4 tables pour stocker les privilèges users : **</p>
+<ul>
+<li><strong>db</strong> : privilèges au niveau des bases de données. </li>
+<li><strong>tables_priv</strong> : privilèges au niveau des tables. </li>
+<li><strong>columns_priv</strong> : privilèges au niveau des colonnes. </li>
+<li><strong>procs_priv</strong> : privilèges au niveau des routines (procédures et fonctions stockées).</li>
+</ul>
+<h4 id="droits-principaux">Droits principaux<a class="headerlink" href="#droits-principaux" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>GRANT</strong> : le droit de donner des droits</li>
+<li><strong>CREATE</strong> : Créer des utilisateurs, des bases, des tables ou des index</li>
+<li><strong>DROP</strong> : Supprimer des utilisateurs, des bases, des tables ou des index</li>
+<li><strong>ALTER</strong> : modifier la structure de tables</li>
+<li><strong>DELETE</strong> : Supprimer des données</li>
+<li><strong>INSERT</strong> : Ajouter des données</li>
+<li><strong>UPDATE</strong> : Modifier des données</li>
+</ul>
+<h5 id="exemple-tp-mysql">exemple (tp mysql) :<a class="headerlink" href="#exemple-tp-mysql" title="Permanent link">&para;</a></h5>
+<p>• Ajouter le droit de faire un INSERT sur la table « table1 » pour l’utilisateur “invite” : </p>
+<div class="codehilite"><pre><span></span><span class="k">GRANT</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="n">table1</span> <span class="k">TO</span> <span class="n">invite</span><span class="p">;</span>
+</pre></div>
+
+<p>• Attribuer tous les droits à l’utilisateur “invite” sur la base de données utilisée : </p>
+<div class="codehilite"><pre><span></span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">ON</span> <span class="o">*</span> <span class="k">TO</span> <span class="n">invite</span><span class="p">;</span>
+</pre></div>
+
+<p>• Retirer le droit de faire un INSERT sur toutes les tables de la BDD utilisée pour l’utilisateur « invite » :</p>
+<div class="codehilite"><pre><span></span><span class="k">REVOKE</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">invite</span><span class="p">;</span>
+</pre></div>
+
+<p>• Retirer le droit de faire un INSERT sur la table « table1 » pour l’utilisateur “invite” : </p>
+<div class="codehilite"><pre><span></span><span class="k">REVOKE</span> <span class="k">INSERT</span> <span class="k">ON</span> <span class="n">table1</span> <span class="k">FROM</span> <span class="n">invite</span><span class="p">;</span>
+</pre></div>
+
+<p>• Retirer tous les droits à l’utilisateur “invite” sur toutes les tables de la BDD utilisée : </p>
+<div class="codehilite"><pre><span></span><span class="k">REVOKE</span> <span class="k">ALL</span> <span class="n">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">invite</span>
+</pre></div>
+
+<blockquote>
+<p><img alt="⚠️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/26a0.svg" title=":warning:" /> - ne jamais donner <strong>WITH GRANT OPTION</strong> à un utilisateur non administrateur système </p>
+</blockquote>
+<h3 id="supervision-et-tuning-mysql">Supervision et "tuning" MySQL<a class="headerlink" href="#supervision-et-tuning-mysql" title="Permanent link">&para;</a></h3>
+<h5 id="mysqltuner"><strong>MySQLTuner</strong> :<a class="headerlink" href="#mysqltuner" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>Script <strong>PERL</strong> qui permet d'optimiser les performances d'un serveur de bases de données MySQL en faisant un diagnostic, voir: <a href="https://github.com/major/MySQLTuner-perl">https://github.com/major/MySQLTuner-perl</a></p>
+</blockquote>
+<h5 id="mytop"><strong>Mytop</strong><a class="headerlink" href="#mytop" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>Outil "top like" écrit en PERL mais pour les base de données. (intégré à deb9)</p>
+</blockquote>
+<ul>
+<li>utilisation :</li>
+</ul>
+<div class="codehilite"><pre><span></span>mytop --prompt -d <span class="s2">&quot;base de donnée&quot;</span>
+</pre></div>
+
+<p>Si cela ne fonctionne pas , installer les dépendances PERL suivante :</p>
+<div class="codehilite"><pre><span></span> apt-get install libconfig-inifiles-perl
+</pre></div>
+
+<p><strong>Mysql only :</strong></p>
+<p>fichier de confg d'exemple dans /usr/share /doc/mysql-server-5.X.XX</p>
+<h5 id="tuning"><strong>Tuning :</strong><a class="headerlink" href="#tuning" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>key_buffer</strong> </li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="n">GLOBAL</span> <span class="n">STATUS</span>
+</pre></div>
+
+<p>ligne "<strong>key_reads/key_read_requests</strong>" radio &lt; 0.01 pour éviter accès disque </p>
+<p>sinon augmenter le key_buffer</p>
+<ol>
+<li><strong>thread_concurrency</strong> (machine multicoeur)</li>
+</ol>
+<p>x2 nom de coeurs</p>
+<ol>
+<li><strong>Activer le log des requêtes lentes</strong> </li>
+</ol>
+<p>slow_query_log=1 </p>
+<p>slow_query_log_file=/var/log/mysql/mysql-slow.log </p>
+<ul>
+<li><em>Et demander d'indiquer le temps le plus lent :</em> </li>
+</ul>
+<p>long_query_time = 2 </p>
+<ul>
+<li><em>Analyser les résultats:</em></li>
+</ul>
+<div class="codehilite"><pre><span></span>tail -n <span class="m">1000</span> /var/log/mysql/mysql-slow.log 
+</pre></div>
+
+<ol>
+<li><strong>check "connection leakage"</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="n">PROCESSLIST</span><span class="p">;</span>
+</pre></div>
+
+<ol>
+<li><strong>Analyser les verrous :</strong></li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="n">STATUS</span> <span class="k">LIKE</span> <span class="s1">&#39;Table%&#39;</span><span class="p">;</span>
+<span class="k">SHOW</span> <span class="kp">ENGINE</span> <span class="n">INNODB</span> <span class="nf">STATUS</span> <span class="p">(</span><span class="n">pour</span> <span class="n">innodb</span><span class="p">)</span>
+</pre></div>
+
+<h3 id="sauvegarde-et-restauration">Sauvegarde et restauration<a class="headerlink" href="#sauvegarde-et-restauration" title="Permanent link">&para;</a></h3>
+<h4 id="backup-a-chaud">backup à chaud<a class="headerlink" href="#backup-a-chaud" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Utilisation de "<strong>mysqldump</strong>" exemples :</p>
+</li>
+<li>
+<p>bases précises :</p>
+<div class="codehilite"><pre><span></span> mysqldump --user<span class="o">=</span>root -p --databases mysql wiki &gt; wiki_bd_backup.sql
+</pre></div>
+
+</li>
+<li>
+<p>all base :</p>
+<div class="codehilite"><pre><span></span>mysqldump --user<span class="o">=</span>root -p --all-databases <span class="p">|</span> gzip &gt; save.mysql.sql.gz
+</pre></div>
+
+</li>
+<li>
+<p>Possibilité d'exporter via outils graphiques (phpmyadmin ou autre)</p>
+</li>
+</ul>
+<h4 id="backup-a-froid">backup à froid :<a class="headerlink" href="#backup-a-froid" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Elle consiste à sauvegarder les fichiers “physiques” du serveur de données. Elle nécessite, par définition l’arrêt du serveur. </p>
+<p>Aucune activité n’est donc possible. C’est un avantage pour le DBA mais il est parfois difficile voire impossible de stopper l’activité en cours. En revanche si l’on dispose d’un réplica on peut tout à fait l’envisager. Celui ci se “re synchronisera” à son redémarrage. La sauvegarde à froid consiste à archiver certains fichiers du serveur. <strong>/var/lib/mysql/</strong> et <strong>/var/log/mysql.log</strong> </p>
+<p>Pour les tables MyISAM il s’agit plus précisement des fichiers <strong>.FRM, .MYI et .MYD</strong> Pour les tables InnoDB : <strong>.FRM</strong>, les fichiers de données (ibdata), les fichiers des tables .ibd (si vous êtes en innodb_file_per_table) et les fichiers journaux (iblogfile) intermédiaires.</p>
+</blockquote>
+<h4 id="restauration">Restauration<a class="headerlink" href="#restauration" title="Permanent link">&para;</a></h4>
+<p>dump en selectionnant la base :</p>
+<div class="codehilite"><pre><span></span><span class="k">use</span> <span class="k">database</span><span class="p">;</span>
+<span class="n">source</span> <span class="o">/</span><span class="n">chemin</span><span class="o">/</span><span class="n">du</span><span class="o">/</span><span class="n">fichier</span><span class="o">/</span><span class="n">backup</span><span class="p">.</span><span class="k">sql</span>
+</pre></div>
+
+<p>ou pour le scripting : </p>
+<div class="codehilite"><pre><span></span>mysql -u myuser -p &lt; /chemin/du/fichier/backup.sql <span class="o">(</span> automatisation totale avec --password <span class="o">=</span> &lt; mot de passe &gt;
+</pre></div>
+
+<blockquote>
+<p>pour restaurer à froid, il suffit de couper le service et de déposer les fichiers aux bons emplacements</p>
+</blockquote>
+<h4 id="automatisation-des-sauvegardes">Automatisation des sauvegardes<a class="headerlink" href="#automatisation-des-sauvegardes" title="Permanent link">&para;</a></h4>
+<h5 id="automysqlbackup-script-tout-en-un">automysqlbackup, Script "tout en un" :<a class="headerlink" href="#automysqlbackup-script-tout-en-un" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Notification par mel </li>
+<li>Compression et chiffrement des sauvegardes</li>
+<li>Rotation des sauvegardes configurable </li>
+<li>Sauvegardes incrémentales</li>
+</ul>
+<div class="codehilite"><pre><span></span>apt-get install automysqlbackup
+</pre></div>
+
+<p>à configure dans  <strong>/etc/default/automysqlbackup</strong></p>
+<h5 id="rsnapshot">rsnapshot :<a class="headerlink" href="#rsnapshot" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span>apt-get install rsnapshot
+</pre></div>
+
+<p>voir <a href="https://wiki.debian-fr.xyz/Rsnapshot">https://wiki.debian-fr.xyz/Rsnapshot</a></p>
+<h5 id="outil-backup-a-chaud">outil backup à chaud :<a class="headerlink" href="#outil-backup-a-chaud" title="Permanent link">&para;</a></h5>
+<p><a href="https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html">https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html</a></p>
+<h3 id="migration-mysql-vers-mariadb-deb9">Migration Mysql vers MariaDB (deb&lt;9)<a class="headerlink" href="#migration-mysql-vers-mariadb-deb9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Maj du serveur Debian</li>
+</ul>
+<div class="codehilite"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> apt-get upgrade
+apt-get install python-software-properties software-properties-common
+</pre></div>
+
+<ul>
+<li>
+<p>Ajout des dépot MariaDB voir :  <a href="https://downloads.mariadb.org/mariadb/repositories/">https://downloads.mariadb.org/mariadb/repositories/</a></p>
+</li>
+<li>
+<p>Si Mysql &gt; 5.5 migration directement sur 10.1 sinon 5.5</p>
+</li>
+<li>
+<p>update des paquets et installe :</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> apt-get install mariadb-server
+</pre></div>
+
+<h3 id="cluser-mariadbgalera">Cluser MariaDB/Galera<a class="headerlink" href="#cluser-mariadbgalera" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Cluster synchro en maître-maître</p>
+<p>En production favoriser 3 serveurs minimum</p>
+</blockquote>
+<ul>
+<li>Création du cluster :</li>
+</ul>
+<div class="codehilite"><pre><span></span>service mysql stop
+mysqld --wsrep-new-cluster
+or
+galera_new_cluster
+</pre></div>
+
+<ul>
+<li>sur les autres noeuds :</li>
+</ul>
+<div class="codehilite"><pre><span></span>service mysql stop
+mysqld --wsrep_cluster_address<span class="o">=</span>gcomm://ip<span class="o">(</span>ou nom DNS du serveur qui a créé le cluster<span class="o">)</span>
+</pre></div>
+
+<ul>
+<li>voir le statut de la syncrho :</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="n">STATUS</span> <span class="k">LIKE</span> <span class="s1">&#39;wsrep_%&#39;</span>
+</pre></div>
+
+<p>configurer affiné voir <a href="http://www.severalnines.com/New-Galera-Configurator/index.html">http://www.severalnines.com/New-Galera-Configurator/index.html</a></p>
+<h3 id="troubleshoot">Troubleshoot<a class="headerlink" href="#troubleshoot" title="Permanent link">&para;</a></h3>
+<h4 id="table-corrompue">Table corrompue<a class="headerlink" href="#table-corrompue" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Message d'erreur </li>
+</ul>
+<blockquote>
+<p>“Table is marked as crashed and should be repaired” </p>
+</blockquote>
+<ul>
+<li>Solution : </li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">repair</span> <span class="k">table</span> <span class="n">bd</span><span class="p">.</span><span class="n">tablename</span><span class="p">;</span>
+</pre></div>
+
+<h4 id="recuperation-de-mot-de-passe-root-mysql">Récupération de mot de passe root MySQL<a class="headerlink" href="#recuperation-de-mot-de-passe-root-mysql" title="Permanent link">&para;</a></h4>
+<p>arrêt du service et redémarrage en mode rescue</p>
+<div class="codehilite"><pre><span></span>systemctl stop mysql <span class="o">&amp;&amp;</span> mysqld_safe --skip-grant-tables <span class="p">&amp;</span> 
+</pre></div>
+
+<p>Connexion en root </p>
+<p><div class="codehilite"><pre><span></span>mysql -u root
+</pre></div>
+dans la console mysql :
+<div class="codehilite"><pre><span></span><span class="c1">#selectionner la base mysql</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">use</span> <span class="n">mysql</span><span class="p">;</span> 
+<span class="c1">#changement du password de l&#39;()</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">update</span> <span class="n">user</span> <span class="kt">set</span> <span class="n">password</span><span class="o">=</span><span class="nf">PASSWORD</span><span class="p">(</span><span class="s2">&quot;nouveaumotdepasse&quot;</span><span class="p">)</span> <span class="k">where</span> <span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span> 
+<span class="c1">#on sauvegarde</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">flush</span> <span class="n">privileges</span><span class="p">;</span> 
+<span class="c1">#et on quitte</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span> 
+</pre></div></p>
+<p>arrêt du mode rescue</p>
+<div class="codehilite"><pre><span></span>systemctl stop mysql
+</pre></div>
+
+<p>test de connexion :</p>
+<div class="codehilite"><pre><span></span>mysql -u root -p
+</pre></div>
+
+<h2 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h2>
+<p><img alt="ℹ️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/2139.svg" title=":information_source:" /> pour l'installation chercher LAMP</p>
+<h3 id="commande">Commande<a class="headerlink" href="#commande" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Modifier le mot de passe de l'utilisateur système postgres </li>
+</ul>
+<div class="codehilite"><pre><span></span>passwd postgres
+</pre></div>
+
+<ul>
+<li>Modifier le mot de passe de l'utilisateur administrateur de la base postgres </li>
+</ul>
+<div class="codehilite"><pre><span></span>su - postgres
+psql -d template1 -c <span class="s2">&quot;ALTER USER postgres WITH PASSWORD &#39;mot de passe&#39;&quot;</span>
+</pre></div>
+
+<p>ou</p>
+<div class="codehilite"><pre><span></span>psql
+<span class="nv">postgres</span><span class="o">=</span><span class="c1"># \password postgres</span>
+</pre></div>
+
+<ul>
+<li>Créer une base </li>
+</ul>
+<div class="codehilite"><pre><span></span>su - postgres
+createdb <span class="s2">&quot;nom de la base&quot;</span>
+</pre></div>
+
+<ul>
+<li>Se connecter à une base</li>
+</ul>
+<div class="codehilite"><pre><span></span>psql <span class="s2">&quot;nom de la base&quot;</span>
+</pre></div>
+
+<ul>
+<li>help</li>
+</ul>
+<div class="codehilite"><pre><span></span>\h
+</pre></div>
+
+<ul>
+<li>fermer la connexion</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kp">\q</span>
+</pre></div>
+
+<ul>
+<li>Créer un utilisateur </li>
+</ul>
+<div class="codehilite"><pre><span></span>psql -d template1 -c <span class="s2">&quot;create user &quot;</span>nom de l<span class="s1">&#39;user&quot; with password &#39;</span>motdepasse<span class="err">&#39;</span><span class="s2">&quot;</span>
+</pre></div>
+
+<ul>
+<li>Pour gérer la base à distance</li>
+</ul>
+<div class="codehilite"><pre><span></span>su - postgres
+psql template1 &lt; /usr/share/postgresql/9.6/extension/adminpack--1.0.sql
+<span class="nb">exit</span>
+</pre></div>
+
+<p>ou</p>
+<div class="codehilite"><pre><span></span><span class="nv">postgres</span><span class="o">=</span><span class="c1"># CREATE EXTENSION adminpack;</span>
+CREATE EXTENSION
+</pre></div>
+
+<ul>
+<li>Activation des connexion TCP/IP </li>
+</ul>
+<div class="codehilite"><pre><span></span>vim /etc/postgresql/9.6/main/postgresql.conf
+  <span class="nv">listen_addresses</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+  <span class="nv">password_encryption</span> <span class="o">=</span> on
+
+service postgresql restart
+</pre></div>
+
+<h3 id="administration-web-voir-section-lamp-pour-linstallation">Administration web (voir section LAMP pour l'installation) :<a class="headerlink" href="#administration-web-voir-section-lamp-pour-linstallation" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>apt-get install phppgadmin
+</pre></div>
+
+<blockquote>
+<p>modifier /etc/apache2/conf-available/phppgadmin.conf pour les accès</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>ln /etc/apache2/conf-available/phppgadmin.conf /etc/apache2/sites-available/.
+a2ensite phppgadmin.conf
+</pre></div>
+
+<ul>
+<li>restart des services  apache2 et postresql et connexion au site http://ipduserv/phppgadmin</li>
+</ul>
+<h3 id="replication-streaming-postgressql">Réplication "streaming" PostgresSQL<a class="headerlink" href="#replication-streaming-postgressql" title="Permanent link">&para;</a></h3>
+<h5 id="prerequis">Prérequis<a class="headerlink" href="#prerequis" title="Permanent link">&para;</a></h5>
+<p>2 serveurs avec PostgreSQL (maître et esclave</p>
+<ul>
+<li>
+<h5 id="serveur-maitre">Serveur maître :<a class="headerlink" href="#serveur-maitre" title="Permanent link">&para;</a></h5>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>vim /etc/postgresql/9.6/main/postgresql.conf     
+  <span class="nv">listen_addresse</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+  <span class="nv">wal_level</span> <span class="o">=</span> hot_standby <span class="nv">wal_keep_segments</span> <span class="o">=</span> <span class="m">10</span>
+  <span class="nv">max_wal_senders</span> <span class="o">=</span> <span class="m">3</span>
+</pre></div>
+
+<ul>
+<li>User pour la réplication</li>
+</ul>
+<div class="codehilite"><pre><span></span>psql -h localhost -U postgres -W -c CREATE USER utilrepl WITH REPLICATION PASSWORD <span class="s1">&#39;motdepasse&#39;</span><span class="p">;</span><span class="s2">&quot;</span>
+</pre></div>
+
+<ul>
+<li>Droit de connexion pour l'user de réplication</li>
+</ul>
+<div class="codehilite"><pre><span></span>vim /etc/postgresql/9.6/main/pg_hba.conf 
+host    replication     utilrepl        ip esclave/cidr          md5
+</pre></div>
+
+<ul>
+<li>On arrête de le service</li>
+</ul>
+<div class="codehilite"><pre><span></span>service postgresql stop
+</pre></div>
+
+<ul>
+<li>
+<h5 id="server-escalve">Server escalve :<a class="headerlink" href="#server-escalve" title="Permanent link">&para;</a></h5>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>vim /etc/postgresql/9.6/main/postgresql.conf
+<span class="nv">listen_addresses</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span> 
+<span class="nv">hot_standby</span> <span class="o">=</span> on
+</pre></div>
+
+<ul>
+<li>On arrête l'esclave et on détruit tous les fichiers de la base</li>
+</ul>
+<div class="codehilite"><pre><span></span>/etc/init.d/postgresql stop 
+<span class="nb">cd</span> /var/lib/postgresql/9.6/main/ 
+rm -rf * 
+vim /var/lib/postgresql/9.6/main/recovery.conf 
+<span class="nv">primary_conninfo</span> <span class="o">=</span> <span class="s1">&#39;host=serveur maître port=5432 user=utilrepl password=motdepasse&#39;</span> 
+<span class="nv">standby_mode</span> <span class="o">=</span> on
+</pre></div>
+
+<ul>
+<li>On copie tout du maître vers l'esclave</li>
+</ul>
+<div class="codehilite"><pre><span></span>rsync -av /var/lib/postgresql/9.6/main/* ip esclave:/var/lib/postgresql/9.6/main/
+</pre></div>
+
+<ul>
+<li>Redémarrer les services sur les deux serveurs</li>
+</ul>
+<div class="codehilite"><pre><span></span>service postgresql start
+</pre></div>
+
+<ul>
+<li>check de la réplication</li>
+</ul>
+<div class="codehilite"><pre><span></span>psql -h localhost -U postgres -W -c <span class="s2">&quot;select * from pg_stat_replication;&quot;</span>
+</pre></div>
+
+<h3 id="troubleshoot_1">Troubleshoot<a class="headerlink" href="#troubleshoot_1" title="Permanent link">&para;</a></h3>
+<h4 id="recuperation-de-mot-de-passe-oublie">Récupération de mot de passe oublié<a class="headerlink" href="#recuperation-de-mot-de-passe-oublie" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Arrêt du service</li>
+</ul>
+<div class="codehilite"><pre><span></span>service postgresql stop
+</pre></div>
+
+<ul>
+<li>modification de pg_hba.conf</li>
+</ul>
+<div class="codehilite"><pre><span></span>vim /usr/lib/pgsql/data/pg_hba.conf
+  <span class="nb">local</span> all all ...
+<span class="c1">#modifier en : </span>
+  <span class="nb">local</span> all postgres trust
+</pre></div>
+
+<ul>
+<li>Relancer le service et changer le mdp </li>
+</ul>
+<div class="codehilite"><pre><span></span>service postgresql start 
+su - postgres $ psql -d template1 -U postgres 
+alter user postgres with password <span class="s1">&#39;votrenouveaumotdepasse&#39;</span><span class="p">;</span>
+<span class="c1">#version une commande</span>
+ psql -U postgres template1 -c <span class="s2">&quot;alter user postgres with password &#39;votrenouveaumotdepasse&#39;;&quot;</span>
+</pre></div>
+
+<ul>
+<li>Remodifier pg_hba.conf pour avoir "local all postgres ident" et relancer le service !</li>
+</ul>
+<h3 id="tuning_1">Tuning<a class="headerlink" href="#tuning_1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>voir <a href="https://www.dsfc.net/logiciel-libre/postgresql/tuning-postgresql-configuration-memoire-linux/">https://www.dsfc.net/logiciel-libre/postgresql/tuning-postgresql-configuration-memoire-linux/</a></p>
+</blockquote>
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Voir section mysql sinon : </p>
+<p><a href="http://www.pgbarman.org/">http://www.pgbarman.org/</a></p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../hardening/" title="Hardening" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Précédent
+                </span>
+                Hardening
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../Code/bash/" title="Bash" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Suivant
+                </span>
+                Bash
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © Anas Asmi 2018
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/anasme" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/anasasmi" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/anasasmi" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.30f6b8b1.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.fr.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"../../.."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","None","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>
