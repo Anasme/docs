@@ -2,23 +2,13 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to anasme's doc !\n\u00b6\n\n\nCe site est consacr\u00e9 \u00e0 ma doc orient\u00e9 devops et AdminSYS... \n\n\nCommands\n\u00b6\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\u00b6\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "text": "Welcome to anasme's doc !\n\u00b6\n\n\nCe site est consacr\u00e9 \u00e0 ma doc orient\u00e9 devops et AdminSYS principalement.\n\n\nN'h\u00e9sitez pas \u00e0 me contacter ou \u00e0 contribuer \n\n\nBonne navigation !\n\n\n\n\nAnas Asmi.",
             "title": "Welcome to anasme's doc !"
         },
         {
             "location": "/#welcome-to-anasmes-doc",
-            "text": "Ce site est consacr\u00e9 \u00e0 ma doc orient\u00e9 devops et AdminSYS...",
+            "text": "Ce site est consacr\u00e9 \u00e0 ma doc orient\u00e9 devops et AdminSYS principalement.  N'h\u00e9sitez pas \u00e0 me contacter ou \u00e0 contribuer   Bonne navigation !   Anas Asmi.",
             "title": "Welcome to anasme's doc !"
-        },
-        {
-            "location": "/#commands",
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.",
-            "title": "Commands"
-        },
-        {
-            "location": "/#project-layout",
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
-            "title": "Project layout"
         },
         {
             "location": "/AdminSys/hardening/",
