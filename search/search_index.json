@@ -26,282 +26,297 @@
             "title": "Hardening"
         },
         {
-            "location": "/AdminSys/bdd/generalite/",
-            "text": "Serveur de donn\u00e9es\n\u00b6\n\n\n\n\n\n\nServeur de donn\u00e9es\n\n\nEnvironnement r\u00e9seau\n\n\n\u00e0 ne pas faire* :\n\n\n\u00e0 ne pas faire non plus :\n\n\nbien de faire :\n\n\nmeilleur chose \u00e0 faire :\n\n\n\n\n\n\nConfiguration MySQL\n\n\nLe fichier de configuration\n\n\ngrandes lignes my.cnf\n\n\n\n\n\n\nFichier de log\n\n\nChanger le r\u00e9pertoire de logs MyQSL\n\n\nLa directive bind-address\n\n\nS\u00e9curisation du service MySQL\n\n\n\n\n\n\nCommandes MySQL (base)\n\n\nSe connecter\n\n\nLister les bases\n\n\nSelectionner une base\n\n\nLister les tables d'une base\n\n\nCr\u00e9er une base\n\n\nCr\u00e9er un utilisateur\n\n\nAffecter une mot de passe \u00e0 un utilisateur\n\n\nDonner tout les droits \u00e0 un utilisateur sur un BD (voir \"Les privil\u00e8ges\" pour les types de droits)\n\n\nRevoquer les droits d'un utilisateur\n\n\nSupprimer un compte utilisateur\n\n\n\n\n\n\nLes privil\u00e8ges (droits)\n\n\nDroits principaux\n\n\nexemple (tp mysql) :\n\n\n\n\n\n\n\n\n\n\nSupervision et \"tuning\" MySQL\n\n\nMySQLTuner :\n\n\nMytop\n\n\nTuning :\n\n\n\n\n\n\nSauvegarde et restauration\n\n\nbackup \u00e0 chaud\n\n\nbackup \u00e0 froid :\n\n\nRestauration\n\n\nAutomatisation des sauvegardes\n\n\nautomysqlbackup, Script \"tout en un\" :\n\n\nrsnapshot :\n\n\noutil backup \u00e0 chaud :\n\n\n\n\n\n\n\n\n\n\nMigration Mysql vers MariaDB (deb<9)\n\n\nCluser MariaDB/Galera\n\n\nTroubleshoot\n\n\nTable corrompue\n\n\nR\u00e9cup\u00e9ration de mot de passe root MySQL\n\n\n\n\n\n\n\n\n\n\nPostgreSQL\n\n\nCommande\n\n\nAdministration web (voir section LAMP pour l'installation) :\n\n\nR\u00e9plication \"streaming\" PostgresSQL\n\n\nPr\u00e9requis\n\n\nServeur ma\u00eetre :\n\n\nServer escalve :\n\n\n\n\n\n\nTroubleshoot\n\n\nR\u00e9cup\u00e9ration de mot de passe oubli\u00e9\n\n\n\n\n\n\nTuning\n\n\nBackup\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEnvironnement r\u00e9seau\n\u00b6\n\n\nLa base de donn\u00e9 est un \u00e9lement critique et sensible d'un architecture pour ces 2 raisons:\n\n\n\n\n\n\nIl n'est pas con\u00e7u pour se prot\u00e9ger efficacement des attaques\n\n\nil contient des donn\u00e9es, c'est \u00e0 dire la seule information p\u00e9renne dans notre architecture\n\n\n\n\n\n\nC'est pou cela qu'il faut l'isoler au maximum : \n\n\n\u00e0 ne pas faire*\n :\n\u00b6\n\n\n\n\n\n\n\n\n\u00e0 ne pas faire non plus\n :\n\u00b6\n\n\n\n\n\n\n\n\n\n\n\n\nbien de faire\n :\n\u00b6\n\n\n\n\n\n\n\n\n\n\n\n\nmeilleur chose \u00e0 faire\n :\n\u00b6\n\n\n\n\n\n\n\n\nConfiguration MySQL\n\u00b6\n\n\nLe fichier de configuration\n\u00b6\n\n\n\n\nle fichier de configuration est le fichier \nmy.cnf\n qui se trouve habituellement dans \n/etc/mysql/\n sinon dans \n/etc/mysql/mariadb.conf.d\n pour mariaDB\n\n\n\n\ngrandes lignes my.cnf\n\u00b6\n\n\n\n\nle port d'\u00e9coute de \nMySQLd\n : qui est le port \n3306\n\n\ndiff\u00e9rents dossiers utilis\u00e9s par \nMySQLd\n\n\nle nom d'utilisateur des processus de \nMySQLd\n (qui est \nmysql\n)\n\n\ndes param\u00e8tres li\u00e9s \u00e0 la performance (taille m\u00e9moire allou\u00e9e, taille du cache ...) ou \u00e0 \nla configuration\n fine de moteurs isam, innodb\n\n\nles fichiers de log \n\n\n\n\nFichier de log\n\u00b6\n\n\ndans my.cnf d\u00e9commenter :\n\n\n\n\ngeneral_log_file        = /var/log/mysql/mysql.log\n\n\ngeneral_log             = 1\n\n\n\n\n logs tr\u00e8s utiles mais consommateurs de ressources \n tueurs de perfs.\n\n\n ne pas hesiter \u00e0 les activer pour du test mais d\u00e9sactiver en production !\n\n\nChanger le r\u00e9pertoire de logs MyQSL\n\u00b6\n\n\n\n\nN\u00e9cessaire si trop d'IO sur le disque (log + datas)\n\n\n\n\nmy.cnf : \n\n\n\n\nlog-bin=/'chemindunouveaur\u00e9pertoire'/mysql-bin \n\n\n\n\n Purger un maximum de logs (PURGE BINLOG...) pour ne pas avoir trop de fichiers \u00e0 transf\u00e9rer.\n\n\nArr\u00eater le service :\n\n\nservice mysql stop\n\n\n\n\n\n\nD\u00e9placer les fichiers vers le nouveau r\u00e9pertoire :\n\n\n\n\nmv /var/lib/mysql /mysql-bin.* /chemindunouveaur\u00e9pertoire/mysql-bin\n\n\n\n\n\n\nRed\u00e9marrer le service\n\n\n\n\n service mysql start\n\n\n\n\nLa directive bind-address\n\u00b6\n\n\n\n\nCette directive sert \u00e0 restreindre l'acc\u00e8s au service MySQLd. Seule la machine (et donc les logiciels outils install\u00e9s dessus) indiqu\u00e9e dans cette directive peut acc\u00e9der au service.\n\n\n\n\nSi on veut acc\u00e9der que par la machine local (localhost) :\n\n\nbind-address \n=\n \n127\n.0.0.1\n\n\n\n\nSi on veut uniquement un serveur distant : \n\n\nbind-address \n=\n \n\"ip du serveur\"\n\n\n\n\n\nSi on veut ouvrir \u00e0 tous les serveurs : \n\n\nbind-address \n=\n \n0\n.0.0.0\n\n\n\n\n\u2139\ufe0f Il n'y a pas de demie mesure, la s\u00e9curisation doit se faire en amont pour les serveur de donn\u00e9es.\n\n\nS\u00e9curisation du service MySQL\n\u00b6\n\n\n#mysql_secure_installation\n\n\n\n\n\nCela permet de : \u2022 s'assurer de bien avoir un mot de passe root MySQL \u2022 emp\u00eacher d'acc\u00e9der en root MySQL depuis le r\u00e9seau (par le socket MySQL ; par contre on acc\u00e8de \u00e0 distance par SSH et ensuite on se connecte \u00e0 SQL une fois rentr\u00e9 dans la machine donc en \u00ab local \u00bb. \u2022 emp\u00eacher les connexions anonymes \u2022 supprimer la base de test (accessible par d\u00e9faut par tous, m\u00eame anonymes) et les privil\u00e8ges qui autorisent tout le monde \u00e0 acc\u00e9der \u00e0 toutes les bases commen\u00e7ant par test_\n\n\nCommandes MySQL (base)\n\u00b6\n\n\nSe connecter\n\u00b6\n\n\nmysql -h \n'host '\n-u \n'user'\n -p \n\n\n\n\nmysql -h localhost -u root -p\n\n\n\n\n\n\n\n\n-h premet de pr\u00e9ciser l'h\u00f4te (host)\n\n\n\n\n\n\n-u permet de pr\u00e9ciser l'utilisateur (user)\n\n\n-p indique que nous allons ensuite taper le mot de passe (password)\n\n\n\n\nLister les bases\n\u00b6\n\n\nSHOW\n \nDATABASES\n;\n\n\n\n\n\nSelectionner une base\n\u00b6\n\n\nUSE\n \n\"nom de la bdd\"\n;\n\n\n\n\n\nLister les tables d'une base\n\u00b6\n\n\n\n\nsi base selectionn\u00e9\n\n\n\n\nSHOW\n \nTABLES\n;\n\n\n\n- sinon\n\n\nSHOW\n \nTABLES\n \nFROM\n \n\"nom de la bdd\"\n;\n\n\n\n\n\nCr\u00e9er une base\n\u00b6\n\n\nCREATE\n \nDATABASE\n \n\"nom bdd\"\n;\n\n\n\n\n\nCr\u00e9er un utilisateur\n\u00b6\n\n\nCREATE\n \nUSER\n \n'user'\n@\n'localhost'\n;\n\n\n\n\n\nAffecter une mot de passe \u00e0 un utilisateur\n\u00b6\n\n\nSET\n \nPASSWORD\n \nFOR\n \n'user'\n \n=\n \nPASSWORD\n(\n'mot de passe'\n);\n\n\n\n\n\nDonner tout les droits \u00e0 un utilisateur sur un BD (voir \"Les privil\u00e8ges\" pour les types de droits)\n\u00b6\n\n\nGRANT\n \nALL\n \nPRIVILEGES\n \nON\n \n'BASE.*'\n \nTO\n \nuser\n@\nlocalhost\n \nIDENTIFIED\n \nby\n \n'mot de passe'\n;\n\n\n\n\n\nRevoquer les droits d'un utilisateur\n\u00b6\n\n\nREVOKE\n \nALL\n \nPRIVILEGES\n \nON\n \n'BASE.*'\n \nFROM\n \nuser\n;\n\n\n\n\n\nSupprimer un compte utilisateur\n\u00b6\n\n\nDROP\n \nuser\n \n'test'\n@\n'localhost'\n;\n\n\n\n\n\nLes privil\u00e8ges (droits)\n\u00b6\n\n\n\n\nEn mati\u00e8re de bases de donn\u00e9es, on parle de \nprivil\u00e8ges\n pour parler des \ndroits\n. Ces privil\u00e8ges s'appliquent \u00e0 des comptes. Tel compte \u00e0 le droit de faire telle action.\n\n\n\n\nLes information des utilisateurs et des privil\u00e8ges sont stock\u00e9es dans la base de donn\u00e9es mysql :\n\n\n\n\ntable user \u27a1\ufe0f utilisateurs(privil\u00e8ges globaux) \n\n\n\n\n**4 tables pour stocker les privil\u00e8ges users : **\n\n\n\n\ndb\n : privil\u00e8ges au niveau des bases de donn\u00e9es. \n\n\ntables_priv\n : privil\u00e8ges au niveau des tables. \n\n\ncolumns_priv\n : privil\u00e8ges au niveau des colonnes. \n\n\nprocs_priv\n : privil\u00e8ges au niveau des routines (proc\u00e9dures et fonctions stock\u00e9es).\n\n\n\n\nDroits principaux\n\u00b6\n\n\n\n\nGRANT\n : le droit de donner des droits\n\n\nCREATE\n : Cr\u00e9er des utilisateurs, des bases, des tables ou des index\n\n\nDROP\n : Supprimer des utilisateurs, des bases, des tables ou des index\n\n\nALTER\n : modifier la structure de tables\n\n\nDELETE\n : Supprimer des donn\u00e9es\n\n\nINSERT\n : Ajouter des donn\u00e9es\n\n\nUPDATE\n : Modifier des donn\u00e9es\n\n\n\n\nexemple (tp mysql) :\n\u00b6\n\n\n\u2022 Ajouter le droit de faire un INSERT sur la table \u00ab table1 \u00bb pour l\u2019utilisateur \u201cinvite\u201d : \n\n\nGRANT\n \nINSERT\n \nON\n \ntable1\n \nTO\n \ninvite\n;\n\n\n\n\n\n\u2022 Attribuer tous les droits \u00e0 l\u2019utilisateur \u201cinvite\u201d sur la base de donn\u00e9es utilis\u00e9e : \n\n\nGRANT\n \nALL\n \nON\n \n*\n \nTO\n \ninvite\n;\n\n\n\n\n\n\u2022 Retirer le droit de faire un INSERT sur toutes les tables de la BDD utilis\u00e9e pour l\u2019utilisateur \u00ab invite \u00bb :\n\n\nREVOKE\n \nINSERT\n \nON\n \n*\n \nFROM\n \ninvite\n;\n\n\n\n\n\n\u2022 Retirer le droit de faire un INSERT sur la table \u00ab table1 \u00bb pour l\u2019utilisateur \u201cinvite\u201d : \n\n\nREVOKE\n \nINSERT\n \nON\n \ntable1\n \nFROM\n \ninvite\n;\n\n\n\n\n\n\u2022 Retirer tous les droits \u00e0 l\u2019utilisateur \u201cinvite\u201d sur toutes les tables de la BDD utilis\u00e9e : \n\n\nREVOKE\n \nALL\n \nPRIVILEGES\n \nON\n \n*\n \nFROM\n \ninvite\n\n\n\n\n\n\n\n - ne jamais donner \nWITH GRANT OPTION\n \u00e0 un utilisateur non administrateur syst\u00e8me \n\n\n\n\nSupervision et \"tuning\" MySQL\n\u00b6\n\n\nMySQLTuner\n :\n\u00b6\n\n\n\n\nScript \nPERL\n qui permet d'optimiser les performances d'un serveur de bases de donn\u00e9es MySQL en faisant un diagnostic, voir: \nhttps://github.com/major/MySQLTuner-perl\n\n\n\n\nMytop\n\u00b6\n\n\n\n\nOutil \"top like\" \u00e9crit en PERL mais pour les base de donn\u00e9es. (int\u00e9gr\u00e9 \u00e0 deb9)\n\n\n\n\n\n\nutilisation :\n\n\n\n\nmytop --prompt -d \n\"base de donn\u00e9e\"\n\n\n\n\n\nSi cela ne fonctionne pas , installer les d\u00e9pendances PERL suivante :\n\n\n apt-get install libconfig-inifiles-perl\n\n\n\n\nMysql only :\n\n\nfichier de confg d'exemple dans /usr/share /doc/mysql-server-5.X.XX\n\n\nTuning :\n\u00b6\n\n\n\n\nkey_buffer\n \n\n\n\n\nSHOW\n \nGLOBAL\n \nSTATUS\n\n\n\n\n\nligne \"\nkey_reads/key_read_requests\n\" radio < 0.01 pour \u00e9viter acc\u00e8s disque \n\n\nsinon augmenter le key_buffer\n\n\n\n\nthread_concurrency\n (machine multicoeur)\n\n\n\n\nx2 nom de coeurs\n\n\n\n\nActiver le log des requ\u00eates lentes\n \n\n\n\n\nslow_query_log=1 \n\n\nslow_query_log_file=/var/log/mysql/mysql-slow.log \n\n\n\n\nEt demander d'indiquer le temps le plus lent :\n \n\n\n\n\nlong_query_time = 2 \n\n\n\n\nAnalyser les r\u00e9sultats:\n\n\n\n\ntail -n \n1000\n /var/log/mysql/mysql-slow.log \n\n\n\n\n\n\ncheck \"connection leakage\"\n\n\n\n\nSHOW\n \nPROCESSLIST\n;\n\n\n\n\n\n\n\nAnalyser les verrous :\n\n\n\n\nSHOW\n \nSTATUS\n \nLIKE\n \n'Table%'\n;\n\n\nSHOW\n \nENGINE\n \nINNODB\n \nSTATUS\n \n(\npour\n \ninnodb\n)\n\n\n\n\n\nSauvegarde et restauration\n\u00b6\n\n\nbackup \u00e0 chaud\n\u00b6\n\n\n\n\n\n\nUtilisation de \"\nmysqldump\n\" exemples :\n\n\n\n\n\n\nbases pr\u00e9cises :\n\n\n mysqldump --user\n=\nroot -p --databases mysql wiki > wiki_bd_backup.sql\n\n\n\n\n\n\n\n\nall base :\n\n\nmysqldump --user\n=\nroot -p --all-databases \n|\n gzip > save.mysql.sql.gz\n\n\n\n\n\n\n\n\nPossibilit\u00e9 d'exporter via outils graphiques (phpmyadmin ou autre)\n\n\n\n\n\n\nbackup \u00e0 froid :\n\u00b6\n\n\n\n\nElle consiste \u00e0 sauvegarder les fichiers \u201cphysiques\u201d du serveur de donn\u00e9es. Elle n\u00e9cessite, par d\u00e9finition l\u2019arr\u00eat du serveur. \n\n\nAucune activit\u00e9 n\u2019est donc possible. C\u2019est un avantage pour le DBA mais il est parfois difficile voire impossible de stopper l\u2019activit\u00e9 en cours. En revanche si l\u2019on dispose d\u2019un r\u00e9plica on peut tout \u00e0 fait l\u2019envisager. Celui ci se \u201cre synchronisera\u201d \u00e0 son red\u00e9marrage. La sauvegarde \u00e0 froid consiste \u00e0 archiver certains fichiers du serveur. \n/var/lib/mysql/\n et \n/var/log/mysql.log\n \n\n\nPour les tables MyISAM il s\u2019agit plus pr\u00e9cisement des fichiers \n.FRM, .MYI et .MYD\n Pour les tables InnoDB : \n.FRM\n, les fichiers de donn\u00e9es (ibdata), les fichiers des tables .ibd (si vous \u00eates en innodb_file_per_table) et les fichiers journaux (iblogfile) interm\u00e9diaires.\n\n\n\n\nRestauration\n\u00b6\n\n\ndump en selectionnant la base :\n\n\nuse\n \ndatabase\n;\n\n\nsource\n \n/\nchemin\n/\ndu\n/\nfichier\n/\nbackup\n.\nsql\n\n\n\n\n\nou pour le scripting : \n\n\nmysql -u myuser -p < /chemin/du/fichier/backup.sql \n(\n automatisation totale avec --password \n=\n < mot de passe >\n\n\n\n\n\n\npour restaurer \u00e0 froid, il suffit de couper le service et de d\u00e9poser les fichiers aux bons emplacements\n\n\n\n\nAutomatisation des sauvegardes\n\u00b6\n\n\nautomysqlbackup, Script \"tout en un\" :\n\u00b6\n\n\n\n\nNotification par mel \n\n\nCompression et chiffrement des sauvegardes\n\n\nRotation des sauvegardes configurable \n\n\nSauvegardes incr\u00e9mentales\n\n\n\n\napt-get install automysqlbackup\n\n\n\n\n\u00e0 configure dans  \n/etc/default/automysqlbackup\n\n\nrsnapshot :\n\u00b6\n\n\napt-get install rsnapshot\n\n\n\n\nvoir \nhttps://wiki.debian-fr.xyz/Rsnapshot\n\n\noutil backup \u00e0 chaud :\n\u00b6\n\n\nhttps://www.percona.com/doc/percona-xtrabackup/LATEST/index.html\n\n\nMigration Mysql vers MariaDB (deb<9)\n\u00b6\n\n\n\n\nMaj du serveur Debian\n\n\n\n\napt-get update \n&&\n apt-get upgrade\napt-get install python-software-properties software-properties-common\n\n\n\n\n\n\n\n\nAjout des d\u00e9pot MariaDB voir :  \nhttps://downloads.mariadb.org/mariadb/repositories/\n\n\n\n\n\n\nSi Mysql > 5.5 migration directement sur 10.1 sinon 5.5\n\n\n\n\n\n\nupdate des paquets et installe :\n\n\n\n\n\n\napt-get update \n&&\n apt-get install mariadb-server\n\n\n\n\nCluser MariaDB/Galera\n\u00b6\n\n\n\n\nCluster synchro en ma\u00eetre-ma\u00eetre\n\n\nEn production favoriser 3 serveurs minimum\n\n\n\n\n\n\nCr\u00e9ation du cluster :\n\n\n\n\nservice mysql stop\nmysqld --wsrep-new-cluster\nor\ngalera_new_cluster\n\n\n\n\n\n\nsur les autres noeuds :\n\n\n\n\nservice mysql stop\nmysqld --wsrep_cluster_address\n=\ngcomm://ip\n(\nou nom DNS du serveur qui a cr\u00e9\u00e9 le cluster\n)\n\n\n\n\n\n\n\nvoir le statut de la syncrho :\n\n\n\n\nSHOW\n \nSTATUS\n \nLIKE\n \n'wsrep_%'\n\n\n\n\n\nconfigurer affin\u00e9 voir \nhttp://www.severalnines.com/New-Galera-Configurator/index.html\n\n\nTroubleshoot\n\u00b6\n\n\nTable corrompue\n\u00b6\n\n\n\n\nMessage d'erreur \n\n\n\n\n\n\n\u201cTable is marked as crashed and should be repaired\u201d \n\n\n\n\n\n\nSolution : \n\n\n\n\nrepair\n \ntable\n \nbd\n.\ntablename\n;\n\n\n\n\n\nR\u00e9cup\u00e9ration de mot de passe root MySQL\n\u00b6\n\n\narr\u00eat du service et red\u00e9marrage en mode rescue\n\n\nsystemctl stop mysql \n&&\n mysqld_safe --skip-grant-tables \n&\n \n\n\n\n\nConnexion en root \n\n\nmysql -u root\n\n\ndans la console mysql :\n\n#selectionner la base mysql\n\n\nmysql\n>\n \nuse\n \nmysql\n;\n \n\n#changement du password de l'()\n\n\nmysql\n>\n \nupdate\n \nuser\n \nset\n \npassword\n=\nPASSWORD\n(\n\"nouveaumotdepasse\"\n)\n \nwhere\n \nuser\n=\n'root'\n;\n \n\n#on sauvegarde\n\n\nmysql\n>\n \nflush\n \nprivileges\n;\n \n\n#et on quitte\n\n\nmysql\n>\n \nquit\n \n\n\n\narr\u00eat du mode rescue\n\n\nsystemctl stop mysql\n\n\n\n\ntest de connexion :\n\n\nmysql -u root -p\n\n\n\n\nPostgreSQL\n\u00b6\n\n\n pour l'installation chercher LAMP\n\n\nCommande\n\u00b6\n\n\n\n\nModifier le mot de passe de l'utilisateur syst\u00e8me postgres \n\n\n\n\npasswd postgres\n\n\n\n\n\n\nModifier le mot de passe de l'utilisateur administrateur de la base postgres \n\n\n\n\nsu - postgres\npsql -d template1 -c \n\"ALTER USER postgres WITH PASSWORD 'mot de passe'\"\n\n\n\n\n\nou\n\n\npsql\n\npostgres\n=\n# \\password postgres\n\n\n\n\n\n\n\nCr\u00e9er une base \n\n\n\n\nsu - postgres\ncreatedb \n\"nom de la base\"\n\n\n\n\n\n\n\nSe connecter \u00e0 une base\n\n\n\n\npsql \n\"nom de la base\"\n\n\n\n\n\n\n\nhelp\n\n\n\n\n\\h\n\n\n\n\n\n\nfermer la connexion\n\n\n\n\n\\q\n\n\n\n\n\n\n\nCr\u00e9er un utilisateur \n\n\n\n\npsql -d template1 -c \n\"create user \"\nnom de l\n'user\" with password '\nmotdepasse\n'\n\"\n\n\n\n\n\n\n\nPour g\u00e9rer la base \u00e0 distance\n\n\n\n\nsu - postgres\npsql template1 < /usr/share/postgresql/9.6/extension/adminpack--1.0.sql\n\nexit\n\n\n\n\n\nou\n\n\npostgres\n=\n# CREATE EXTENSION adminpack;\n\nCREATE EXTENSION\n\n\n\n\n\n\nActivation des connexion TCP/IP \n\n\n\n\nvim /etc/postgresql/9.6/main/postgresql.conf\n  \nlisten_addresses\n \n=\n \n'localhost'\n\n  \npassword_encryption\n \n=\n on\n\nservice postgresql restart\n\n\n\n\nAdministration web (voir section LAMP pour l'installation) :\n\u00b6\n\n\napt-get install phppgadmin\n\n\n\n\n\n\nmodifier /etc/apache2/conf-available/phppgadmin.conf pour les acc\u00e8s\n\n\n\n\nln /etc/apache2/conf-available/phppgadmin.conf /etc/apache2/sites-available/.\na2ensite phppgadmin.conf\n\n\n\n\n\n\nrestart des services  apache2 et postresql et connexion au site http://ipduserv/phppgadmin\n\n\n\n\nR\u00e9plication \"streaming\" PostgresSQL\n\u00b6\n\n\nPr\u00e9requis\n\u00b6\n\n\n2 serveurs avec PostgreSQL (ma\u00eetre et esclave\n\n\n\n\n\n\nServeur ma\u00eetre :\n\u00b6\n\n\n\n\n\n\nvim /etc/postgresql/9.6/main/postgresql.conf     \n  \nlisten_addresse\n \n=\n \n'*'\n\n  \nwal_level\n \n=\n hot_standby \nwal_keep_segments\n \n=\n \n10\n\n  \nmax_wal_senders\n \n=\n \n3\n\n\n\n\n\n\n\nUser pour la r\u00e9plication\n\n\n\n\npsql -h localhost -U postgres -W -c CREATE USER utilrepl WITH REPLICATION PASSWORD \n'motdepasse'\n;\n\"\n\n\n\n\n\n\n\nDroit de connexion pour l'user de r\u00e9plication\n\n\n\n\nvim /etc/postgresql/9.6/main/pg_hba.conf \nhost    replication     utilrepl        ip esclave/cidr          md5\n\n\n\n\n\n\nOn arr\u00eate de le service\n\n\n\n\nservice postgresql stop\n\n\n\n\n\n\n\n\nServer escalve :\n\u00b6\n\n\n\n\n\n\nvim /etc/postgresql/9.6/main/postgresql.conf\n\nlisten_addresses\n \n=\n \n'*'\n \n\nhot_standby\n \n=\n on\n\n\n\n\n\n\nOn arr\u00eate l'esclave et on d\u00e9truit tous les fichiers de la base\n\n\n\n\n/etc/init.d/postgresql stop \n\ncd\n /var/lib/postgresql/9.6/main/ \nrm -rf * \nvim /var/lib/postgresql/9.6/main/recovery.conf \n\nprimary_conninfo\n \n=\n \n'host=serveur ma\u00eetre port=5432 user=utilrepl password=motdepasse'\n \n\nstandby_mode\n \n=\n on\n\n\n\n\n\n\nOn copie tout du ma\u00eetre vers l'esclave\n\n\n\n\nrsync -av /var/lib/postgresql/9.6/main/* ip esclave:/var/lib/postgresql/9.6/main/\n\n\n\n\n\n\nRed\u00e9marrer les services sur les deux serveurs\n\n\n\n\nservice postgresql start\n\n\n\n\n\n\ncheck de la r\u00e9plication\n\n\n\n\npsql -h localhost -U postgres -W -c \n\"select * from pg_stat_replication;\"\n\n\n\n\n\nTroubleshoot\n\u00b6\n\n\nR\u00e9cup\u00e9ration de mot de passe oubli\u00e9\n\u00b6\n\n\n\n\nArr\u00eat du service\n\n\n\n\nservice postgresql stop\n\n\n\n\n\n\nmodification de pg_hba.conf\n\n\n\n\nvim /usr/lib/pgsql/data/pg_hba.conf\n  \nlocal\n all all ...\n\n#modifier en : \n\n  \nlocal\n all postgres trust\n\n\n\n\n\n\nRelancer le service et changer le mdp \n\n\n\n\nservice postgresql start \nsu - postgres $ psql -d template1 -U postgres \nalter user postgres with password \n'votrenouveaumotdepasse'\n;\n\n\n#version une commande\n\n psql -U postgres template1 -c \n\"alter user postgres with password 'votrenouveaumotdepasse';\"\n\n\n\n\n\n\n\nRemodifier pg_hba.conf pour avoir \"local all postgres ident\" et relancer le service !\n\n\n\n\nTuning\n\u00b6\n\n\n\n\nvoir \nhttps://www.dsfc.net/logiciel-libre/postgresql/tuning-postgresql-configuration-memoire-linux/\n\n\n\n\nBackup\n\u00b6\n\n\n\n\nVoir section mysql sinon : \n\n\nhttp://www.pgbarman.org/",
-            "title": "Serveur de donn\u00e9es"
-        },
-        {
-            "location": "/AdminSys/bdd/generalite/#serveur-de-donnees",
-            "text": "Serveur de donn\u00e9es  Environnement r\u00e9seau  \u00e0 ne pas faire* :  \u00e0 ne pas faire non plus :  bien de faire :  meilleur chose \u00e0 faire :    Configuration MySQL  Le fichier de configuration  grandes lignes my.cnf    Fichier de log  Changer le r\u00e9pertoire de logs MyQSL  La directive bind-address  S\u00e9curisation du service MySQL    Commandes MySQL (base)  Se connecter  Lister les bases  Selectionner une base  Lister les tables d'une base  Cr\u00e9er une base  Cr\u00e9er un utilisateur  Affecter une mot de passe \u00e0 un utilisateur  Donner tout les droits \u00e0 un utilisateur sur un BD (voir \"Les privil\u00e8ges\" pour les types de droits)  Revoquer les droits d'un utilisateur  Supprimer un compte utilisateur    Les privil\u00e8ges (droits)  Droits principaux  exemple (tp mysql) :      Supervision et \"tuning\" MySQL  MySQLTuner :  Mytop  Tuning :    Sauvegarde et restauration  backup \u00e0 chaud  backup \u00e0 froid :  Restauration  Automatisation des sauvegardes  automysqlbackup, Script \"tout en un\" :  rsnapshot :  outil backup \u00e0 chaud :      Migration Mysql vers MariaDB (deb<9)  Cluser MariaDB/Galera  Troubleshoot  Table corrompue  R\u00e9cup\u00e9ration de mot de passe root MySQL      PostgreSQL  Commande  Administration web (voir section LAMP pour l'installation) :  R\u00e9plication \"streaming\" PostgresSQL  Pr\u00e9requis  Serveur ma\u00eetre :  Server escalve :    Troubleshoot  R\u00e9cup\u00e9ration de mot de passe oubli\u00e9    Tuning  Backup",
-            "title": "Serveur de donn\u00e9es"
-        },
-        {
-            "location": "/AdminSys/bdd/generalite/#environnement-reseau",
-            "text": "La base de donn\u00e9 est un \u00e9lement critique et sensible d'un architecture pour ces 2 raisons:    Il n'est pas con\u00e7u pour se prot\u00e9ger efficacement des attaques  il contient des donn\u00e9es, c'est \u00e0 dire la seule information p\u00e9renne dans notre architecture    C'est pou cela qu'il faut l'isoler au maximum :",
+            "location": "/AdminSys/BDD/Environnement R\u00e9seau/",
+            "text": "Environnement r\u00e9seau\n\u00b6\n\n\nImportant\n\u00b6\n\n\nLa base de donn\u00e9 est un \u00e9lement critique et sensible d'un architecture pour ces 2 raisons:\n\n\n\n\n\n\nIl n'est pas con\u00e7u pour se prot\u00e9ger efficacement des attaques\n\n\nil contient des donn\u00e9es, c'est \u00e0 dire la seule information p\u00e9renne dans notre architecture\n\n\n\n\n\n\nC'est pour cela qu'il faut l'isoler au maximum :\n \n\n\n\u00e0 ne pas faire\n\u00b6\n\n\n\n\n\u00e0 ne pas faire non plus\n\u00b6\n\n\n\n\nbien de faire\n\u00b6\n\n\n\n\nmeilleur chose \u00e0 faire\n\u00b6",
             "title": "Environnement r\u00e9seau"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#a-ne-pas-faire",
+            "location": "/AdminSys/BDD/Environnement R\u00e9seau/#environnement-reseau",
             "text": "",
-            "title": "\u00e0 ne pas faire* :"
+            "title": "Environnement r\u00e9seau"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#a-ne-pas-faire-non-plus",
-            "text": "",
-            "title": "\u00e0 ne pas faire non plus :"
+            "location": "/AdminSys/BDD/Environnement R\u00e9seau/#important",
+            "text": "La base de donn\u00e9 est un \u00e9lement critique et sensible d'un architecture pour ces 2 raisons:    Il n'est pas con\u00e7u pour se prot\u00e9ger efficacement des attaques  il contient des donn\u00e9es, c'est \u00e0 dire la seule information p\u00e9renne dans notre architecture    C'est pour cela qu'il faut l'isoler au maximum :",
+            "title": "Important"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#bien-de-faire",
+            "location": "/AdminSys/BDD/Environnement R\u00e9seau/#a-ne-pas-faire",
             "text": "",
-            "title": "bien de faire :"
+            "title": "\u00e0 ne pas faire"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#meilleur-chose-a-faire",
+            "location": "/AdminSys/BDD/Environnement R\u00e9seau/#a-ne-pas-faire-non-plus",
             "text": "",
-            "title": "meilleur chose \u00e0 faire :"
+            "title": "\u00e0 ne pas faire non plus"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#configuration-mysql",
+            "location": "/AdminSys/BDD/Environnement R\u00e9seau/#bien-de-faire",
+            "text": "",
+            "title": "bien de faire"
+        },
+        {
+            "location": "/AdminSys/BDD/Environnement R\u00e9seau/#meilleur-chose-a-faire",
+            "text": "",
+            "title": "meilleur chose \u00e0 faire"
+        },
+        {
+            "location": "/AdminSys/BDD/MySQL/",
+            "text": "MYSQL\n\u00b6\n\n\nConfiguration MySQL\n\u00b6\n\n\nLe fichier de configuration\n\u00b6\n\n\n\n\nle fichier de configuration est le fichier \nmy.cnf\n qui se trouve habituellement dans \n/etc/mysql/\n sinon dans \n/etc/mysql/mariadb.conf.d\n pour mariaDB\n\n\n\n\nGrandes lignes my.cnf\n\u00b6\n\n\n\n\nle port d'\u00e9coute de \nMySQLd\n : \n3306\n\n\ndiff\u00e9rents dossiers utilis\u00e9s par \nMySQLd\n\n\nle nom d'utilisateur des processus de \nMySQLd\n (qui est \nmysql\n)\n\n\ndes param\u00e8tres li\u00e9s \u00e0 la performance (taille m\u00e9moire allou\u00e9e, taille du cache ...) ou \u00e0 \nla configuration\n fine de moteurs isam, innodb\n\n\nles fichiers de log \n\n\n\n\nFichier de log\n\u00b6\n\n\ndans my.cnf d\u00e9commenter :\n\n\n\n\ngeneral_log_file        = /var/log/mysql/mysql.log\n\n\ngeneral_log             = 1\n\n\n\n\n\n\nWarning\n\n\nlogs tr\u00e8s utiles mais consommateurs de ressources \n tueurs de perfs.\nNe pas hesiter \u00e0 les activer pour du test mais d\u00e9sactiver en production !\n\n\n\n\nChanger le r\u00e9pertoire de logs MyQSL\n\u00b6\n\n\n\n\nN\u00e9cessaire si trop d'IO sur le disque (log + datas)\n\n\n\n\nmy.cnf : \n\n\n\n\nlog-bin=/'chemindunouveaur\u00e9pertoire'/mysql-bin \n\n\n\n\n\n\nInfo\n\n\nPurger un maximum de logs (PURGE BINLOG...) pour ne pas avoir trop de fichiers \u00e0 transf\u00e9rer.\n\n\n\n\n\n\nArr\u00eater le service :\n\n\n\n\nservice mysql stop\n\n\n\n\n\n\nD\u00e9placer les fichiers vers le nouveau r\u00e9pertoire :\n\n\n\n\nmv /var/lib/mysql /mysql-bin.* /chemindunouveaur\u00e9pertoire/mysql-bin\n\n\n\n\n\n\nRed\u00e9marrer le service\n\n\n\n\n service mysql start\n\n\n\n\nLa directive bind-address\n\u00b6\n\n\n\n\nCette directive sert \u00e0 restreindre l'acc\u00e8s au service MySQLd. Seule la machine (et donc les logiciels outils install\u00e9s dessus) indiqu\u00e9e dans cette directive peut acc\u00e9der au service.\n\n\n\n\nSi on veut acc\u00e9der que par la machine local (localhost) :\n\n\nbind-address \n=\n \n127\n.0.0.1\n\n\n\n\nSi on veut uniquement un serveur distant : \n\n\nbind-address \n=\n \n\"ip du serveur\"\n\n\n\n\n\nSi on veut ouvrir \u00e0 tous les serveurs : \n\n\nbind-address \n=\n \n0\n.0.0.0\n\n\n\n\n\n\nInfo\n\n\nIl n'y a pas de demie mesure, la s\u00e9curisation doit se faire en amont pour les serveur de donn\u00e9es.\n\n\n\n\nS\u00e9curisation du service MySQL\n\u00b6\n\n\n#mysql_secure_installation\n\n\n\n\n\nCela permet de : \u2022 s'assurer de bien avoir un mot de passe root MySQL \u2022 emp\u00eacher d'acc\u00e9der en root MySQL depuis le r\u00e9seau (par le socket MySQL ; par contre on acc\u00e8de \u00e0 distance par SSH et ensuite on se connecte \u00e0 SQL une fois rentr\u00e9 dans la machine donc en \u00ab local \u00bb. \u2022 emp\u00eacher les connexions anonymes \u2022 supprimer la base de test (accessible par d\u00e9faut par tous, m\u00eame anonymes) et les privil\u00e8ges qui autorisent tout le monde \u00e0 acc\u00e9der \u00e0 toutes les bases commen\u00e7ant par test_\n\n\nCommandes MySQL (base)\n\u00b6\n\n\nSe connecter\n\u00b6\n\n\nmysql -h \n'host '\n-u \n'user'\n -p \n\n\n\n\nmysql -h localhost -u root -p\n\n\n\n\n\n\n\n\n-h premet de pr\u00e9ciser l'h\u00f4te (host)\n\n\n\n\n\n\n-u permet de pr\u00e9ciser l'utilisateur (user)\n\n\n-p indique que nous allons ensuite taper le mot de passe (password)\n\n\n\n\nLister les bases\n\u00b6\n\n\nSHOW\n \nDATABASES\n;\n\n\n\n\n\nSelectionner une base\n\u00b6\n\n\nUSE\n \n\"nom de la bdd\"\n;\n\n\n\n\n\nLister les tables d'une base\n\u00b6\n\n\n\n\nsi base selectionn\u00e9\n\n\n\n\nSHOW\n \nTABLES\n;\n\n\n\n- sinon\n\n\nSHOW\n \nTABLES\n \nFROM\n \n\"nom de la bdd\"\n;\n\n\n\n\n\nCr\u00e9er une base\n\u00b6\n\n\nCREATE\n \nDATABASE\n \n\"nom bdd\"\n;\n\n\n\n\n\nCr\u00e9er un utilisateur\n\u00b6\n\n\nCREATE\n \nUSER\n \n'user'\n@\n'localhost'\n;\n\n\n\n\n\nAffecter une mot de passe \u00e0 un utilisateur\n\u00b6\n\n\nSET\n \nPASSWORD\n \nFOR\n \n'user'\n \n=\n \nPASSWORD\n(\n'mot de passe'\n);\n\n\n\n\n\nDonner tout les droits \u00e0 un utilisateur sur un BD (voir \"Les privil\u00e8ges\" pour les types de droits)\n\u00b6\n\n\nGRANT\n \nALL\n \nPRIVILEGES\n \nON\n \n'BASE.*'\n \nTO\n \nuser\n@\nlocalhost\n \nIDENTIFIED\n \nby\n \n'mot de passe'\n;\n\n\n\n\n\nRevoquer les droits d'un utilisateur\n\u00b6\n\n\nREVOKE\n \nALL\n \nPRIVILEGES\n \nON\n \n'BASE.*'\n \nFROM\n \nuser\n;\n\n\n\n\n\nSupprimer un compte utilisateur\n\u00b6\n\n\nDROP\n \nuser\n \n'test'\n@\n'localhost'\n;\n\n\n\n\n\nLes privil\u00e8ges (droits)\n\u00b6\n\n\n\n\nEn mati\u00e8re de bases de donn\u00e9es, on parle de \nprivil\u00e8ges\n pour parler des \ndroits\n. Ces privil\u00e8ges s'appliquent \u00e0 des comptes. Tel compte \u00e0 le droit de faire telle action.\n\n\n\n\nLes information des utilisateurs et des privil\u00e8ges sont stock\u00e9es dans la base de donn\u00e9es mysql :\n\n\n\n\ntable user \u27a1\ufe0f utilisateurs(privil\u00e8ges globaux) \n\n\n\n\n**4 tables pour stocker les privil\u00e8ges users : **\n\n\n\n\ndb\n : privil\u00e8ges au niveau des bases de donn\u00e9es. \n\n\ntables_priv\n : privil\u00e8ges au niveau des tables. \n\n\ncolumns_priv\n : privil\u00e8ges au niveau des colonnes. \n\n\nprocs_priv\n : privil\u00e8ges au niveau des routines (proc\u00e9dures et fonctions stock\u00e9es).\n\n\n\n\nDroits principaux\n\u00b6\n\n\n\n\nGRANT\n : le droit de donner des droits\n\n\nCREATE\n : Cr\u00e9er des utilisateurs, des bases, des tables ou des index\n\n\nDROP\n : Supprimer des utilisateurs, des bases, des tables ou des index\n\n\nALTER\n : modifier la structure de tables\n\n\nDELETE\n : Supprimer des donn\u00e9es\n\n\nINSERT\n : Ajouter des donn\u00e9es\n\n\nUPDATE\n : Modifier des donn\u00e9es\n\n\n\n\nexemple (tp mysql) :\n\u00b6\n\n\n\u2022 Ajouter le droit de faire un INSERT sur la table \u00ab table1 \u00bb pour l\u2019utilisateur \u201cinvite\u201d : \n\n\nGRANT\n \nINSERT\n \nON\n \ntable1\n \nTO\n \ninvite\n;\n\n\n\n\n\n\u2022 Attribuer tous les droits \u00e0 l\u2019utilisateur \u201cinvite\u201d sur la base de donn\u00e9es utilis\u00e9e : \n\n\nGRANT\n \nALL\n \nON\n \n*\n \nTO\n \ninvite\n;\n\n\n\n\n\n\u2022 Retirer le droit de faire un INSERT sur toutes les tables de la BDD utilis\u00e9e pour l\u2019utilisateur \u00ab invite \u00bb :\n\n\nREVOKE\n \nINSERT\n \nON\n \n*\n \nFROM\n \ninvite\n;\n\n\n\n\n\n\u2022 Retirer le droit de faire un INSERT sur la table \u00ab table1 \u00bb pour l\u2019utilisateur \u201cinvite\u201d : \n\n\nREVOKE\n \nINSERT\n \nON\n \ntable1\n \nFROM\n \ninvite\n;\n\n\n\n\n\n\u2022 Retirer tous les droits \u00e0 l\u2019utilisateur \u201cinvite\u201d sur toutes les tables de la BDD utilis\u00e9e : \n\n\nREVOKE\n \nALL\n \nPRIVILEGES\n \nON\n \n*\n \nFROM\n \ninvite\n\n\n\n\n\n\n\n - ne jamais donner \nWITH GRANT OPTION\n \u00e0 un utilisateur non administrateur syst\u00e8me \n\n\n\n\nSupervision et \"tuning\" MySQL\n\u00b6\n\n\nMySQLTuner\n :\n\u00b6\n\n\n\n\nScript \nPERL\n qui permet d'optimiser les performances d'un serveur de bases de donn\u00e9es MySQL en faisant un diagnostic, voir: \nhttps://github.com/major/MySQLTuner-perl\n\n\n\n\nMytop\n\u00b6\n\n\n\n\nOutil \"top like\" \u00e9crit en PERL mais pour les base de donn\u00e9es. (int\u00e9gr\u00e9 \u00e0 deb9)\n\n\n\n\n\n\nutilisation :\n\n\n\n\nmytop --prompt -d \n\"base de donn\u00e9e\"\n\n\n\n\n\nSi cela ne fonctionne pas , installer les d\u00e9pendances PERL suivante :\n\n\n apt-get install libconfig-inifiles-perl\n\n\n\n\nMysql only :\n\n\nfichier de confg d'exemple dans /usr/share /doc/mysql-server-5.X.XX\n\n\nTuning :\n\u00b6\n\n\n\n\nkey_buffer\n \n\n\n\n\nSHOW\n \nGLOBAL\n \nSTATUS\n\n\n\n\n\nligne \"\nkey_reads/key_read_requests\n\" radio < 0.01 pour \u00e9viter acc\u00e8s disque \n\n\nsinon augmenter le key_buffer\n\n\n\n\nthread_concurrency\n (machine multicoeur)\n\n\n\n\nx2 nom de coeurs\n\n\n\n\nActiver le log des requ\u00eates lentes\n \n\n\n\n\nslow_query_log=1 \n\n\nslow_query_log_file=/var/log/mysql/mysql-slow.log \n\n\n\n\nEt demander d'indiquer le temps le plus lent :\n \n\n\n\n\nlong_query_time = 2 \n\n\n\n\nAnalyser les r\u00e9sultats:\n\n\n\n\ntail -n \n1000\n /var/log/mysql/mysql-slow.log \n\n\n\n\n\n\ncheck \"connection leakage\"\n\n\n\n\nSHOW\n \nPROCESSLIST\n;\n\n\n\n\n\n\n\nAnalyser les verrous :\n\n\n\n\nSHOW\n \nSTATUS\n \nLIKE\n \n'Table%'\n;\n\n\nSHOW\n \nENGINE\n \nINNODB\n \nSTATUS\n \n(\npour\n \ninnodb\n)\n\n\n\n\n\nSauvegarde et restauration\n\u00b6\n\n\nbackup \u00e0 chaud\n\u00b6\n\n\n\n\n\n\nUtilisation de \"\nmysqldump\n\" exemples :\n\n\n\n\n\n\nbases pr\u00e9cises :\n\n\n mysqldump --user\n=\nroot -p --databases mysql wiki > wiki_bd_backup.sql\n\n\n\n\n\n\n\n\nall base :\n\n\nmysqldump --user\n=\nroot -p --all-databases \n|\n gzip > save.mysql.sql.gz\n\n\n\n\n\n\n\n\nPossibilit\u00e9 d'exporter via outils graphiques (phpmyadmin ou autre)\n\n\n\n\n\n\nbackup \u00e0 froid :\n\u00b6\n\n\n\n\nElle consiste \u00e0 sauvegarder les fichiers \u201cphysiques\u201d du serveur de donn\u00e9es. Elle n\u00e9cessite, par d\u00e9finition l\u2019arr\u00eat du serveur. \n\n\nAucune activit\u00e9 n\u2019est donc possible. C\u2019est un avantage pour le DBA mais il est parfois difficile voire impossible de stopper l\u2019activit\u00e9 en cours. En revanche si l\u2019on dispose d\u2019un r\u00e9plica on peut tout \u00e0 fait l\u2019envisager. Celui ci se \u201cre synchronisera\u201d \u00e0 son red\u00e9marrage. La sauvegarde \u00e0 froid consiste \u00e0 archiver certains fichiers du serveur. \n/var/lib/mysql/\n et \n/var/log/mysql.log\n \n\n\nPour les tables MyISAM il s\u2019agit plus pr\u00e9cisement des fichiers \n.FRM, .MYI et .MYD\n Pour les tables InnoDB : \n.FRM\n, les fichiers de donn\u00e9es (ibdata), les fichiers des tables .ibd (si vous \u00eates en innodb_file_per_table) et les fichiers journaux (iblogfile) interm\u00e9diaires.\n\n\n\n\nRestauration\n\u00b6\n\n\ndump en selectionnant la base :\n\n\nuse\n \ndatabase\n;\n\n\nsource\n \n/\nchemin\n/\ndu\n/\nfichier\n/\nbackup\n.\nsql\n\n\n\n\n\nou pour le scripting : \n\n\nmysql -u myuser -p < /chemin/du/fichier/backup.sql \n(\n automatisation totale avec --password \n=\n < mot de passe >\n\n\n\n\n\n\npour restaurer \u00e0 froid, il suffit de couper le service et de d\u00e9poser les fichiers aux bons emplacements\n\n\n\n\nAutomatisation des sauvegardes\n\u00b6\n\n\nautomysqlbackup, Script \"tout en un\" :\n\u00b6\n\n\n\n\nNotification par mel \n\n\nCompression et chiffrement des sauvegardes\n\n\nRotation des sauvegardes configurable \n\n\nSauvegardes incr\u00e9mentales\n\n\n\n\napt-get install automysqlbackup\n\n\n\n\n\u00e0 configure dans  \n/etc/default/automysqlbackup\n\n\nrsnapshot :\n\u00b6\n\n\napt-get install rsnapshot\n\n\n\n\nvoir \nhttps://wiki.debian-fr.xyz/Rsnapshot\n\n\noutil backup \u00e0 chaud :\n\u00b6\n\n\nhttps://www.percona.com/doc/percona-xtrabackup/LATEST/index.html\n\n\nMigration Mysql vers MariaDB (deb<9)\n\u00b6\n\n\n\n\nMaj du serveur Debian\n\n\n\n\napt-get update \n&&\n apt-get upgrade\napt-get install python-software-properties software-properties-common\n\n\n\n\n\n\n\n\nAjout des d\u00e9pot MariaDB voir :  \nhttps://downloads.mariadb.org/mariadb/repositories/\n\n\n\n\n\n\nSi Mysql > 5.5 migration directement sur 10.1 sinon 5.5\n\n\n\n\n\n\nupdate des paquets et installe :\n\n\n\n\n\n\napt-get update \n&&\n apt-get install mariadb-server\n\n\n\n\nCluser MariaDB/Galera\n\u00b6\n\n\n\n\nCluster synchro en ma\u00eetre-ma\u00eetre\n\n\nEn production favoriser 3 serveurs minimum\n\n\n\n\n\n\nCr\u00e9ation du cluster :\n\n\n\n\nservice mysql stop\nmysqld --wsrep-new-cluster\nor\ngalera_new_cluster\n\n\n\n\n\n\nsur les autres noeuds :\n\n\n\n\nservice mysql stop\nmysqld --wsrep_cluster_address\n=\ngcomm://ip\n(\nou nom DNS du serveur qui a cr\u00e9\u00e9 le cluster\n)\n\n\n\n\n\n\n\nvoir le statut de la syncrho :\n\n\n\n\nSHOW\n \nSTATUS\n \nLIKE\n \n'wsrep_%'\n\n\n\n\n\nconfigurer affin\u00e9 voir \nhttp://www.severalnines.com/New-Galera-Configurator/index.html\n\n\nTroubleshoot\n\u00b6\n\n\nTable corrompue\n\u00b6\n\n\n\n\nMessage d'erreur \n\n\n\n\n\n\n\u201cTable is marked as crashed and should be repaired\u201d \n\n\n\n\n\n\nSolution : \n\n\n\n\nrepair\n \ntable\n \nbd\n.\ntablename\n;\n\n\n\n\n\nR\u00e9cup\u00e9ration de mot de passe root MySQL\n\u00b6\n\n\narr\u00eat du service et red\u00e9marrage en mode rescue\n\n\nsystemctl stop mysql \n&&\n mysqld_safe --skip-grant-tables \n&\n \n\n\n\n\nConnexion en root \n\n\nmysql -u root\n\n\ndans la console mysql :\n\n#selectionner la base mysql\n\n\nmysql\n>\n \nuse\n \nmysql\n;\n \n\n#changement du password de l'()\n\n\nmysql\n>\n \nupdate\n \nuser\n \nset\n \npassword\n=\nPASSWORD\n(\n\"nouveaumotdepasse\"\n)\n \nwhere\n \nuser\n=\n'root'\n;\n \n\n#on sauvegarde\n\n\nmysql\n>\n \nflush\n \nprivileges\n;\n \n\n#et on quitte\n\n\nmysql\n>\n \nquit\n \n\n\n\narr\u00eat du mode rescue\n\n\nsystemctl stop mysql\n\n\n\n\ntest de connexion :\n\n\nmysql -u root -p",
+            "title": "MYSQL"
+        },
+        {
+            "location": "/AdminSys/BDD/MySQL/#mysql",
+            "text": "",
+            "title": "MYSQL"
+        },
+        {
+            "location": "/AdminSys/BDD/MySQL/#configuration-mysql",
             "text": "",
             "title": "Configuration MySQL"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#le-fichier-de-configuration",
+            "location": "/AdminSys/BDD/MySQL/#le-fichier-de-configuration",
             "text": "le fichier de configuration est le fichier  my.cnf  qui se trouve habituellement dans  /etc/mysql/  sinon dans  /etc/mysql/mariadb.conf.d  pour mariaDB",
             "title": "Le fichier de configuration"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#grandes-lignes-mycnf",
-            "text": "le port d'\u00e9coute de  MySQLd  : qui est le port  3306  diff\u00e9rents dossiers utilis\u00e9s par  MySQLd  le nom d'utilisateur des processus de  MySQLd  (qui est  mysql )  des param\u00e8tres li\u00e9s \u00e0 la performance (taille m\u00e9moire allou\u00e9e, taille du cache ...) ou \u00e0  la configuration  fine de moteurs isam, innodb  les fichiers de log",
-            "title": "grandes lignes my.cnf"
+            "location": "/AdminSys/BDD/MySQL/#grandes-lignes-mycnf",
+            "text": "le port d'\u00e9coute de  MySQLd  :  3306  diff\u00e9rents dossiers utilis\u00e9s par  MySQLd  le nom d'utilisateur des processus de  MySQLd  (qui est  mysql )  des param\u00e8tres li\u00e9s \u00e0 la performance (taille m\u00e9moire allou\u00e9e, taille du cache ...) ou \u00e0  la configuration  fine de moteurs isam, innodb  les fichiers de log",
+            "title": "Grandes lignes my.cnf"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#fichier-de-log",
-            "text": "dans my.cnf d\u00e9commenter :   general_log_file        = /var/log/mysql/mysql.log  general_log             = 1    logs tr\u00e8s utiles mais consommateurs de ressources   tueurs de perfs.   ne pas hesiter \u00e0 les activer pour du test mais d\u00e9sactiver en production !",
+            "location": "/AdminSys/BDD/MySQL/#fichier-de-log",
+            "text": "dans my.cnf d\u00e9commenter :   general_log_file        = /var/log/mysql/mysql.log  general_log             = 1    Warning  logs tr\u00e8s utiles mais consommateurs de ressources   tueurs de perfs.\nNe pas hesiter \u00e0 les activer pour du test mais d\u00e9sactiver en production !",
             "title": "Fichier de log"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#changer-le-repertoire-de-logs-myqsl",
-            "text": "N\u00e9cessaire si trop d'IO sur le disque (log + datas)   my.cnf :    log-bin=/'chemindunouveaur\u00e9pertoire'/mysql-bin     Purger un maximum de logs (PURGE BINLOG...) pour ne pas avoir trop de fichiers \u00e0 transf\u00e9rer.  Arr\u00eater le service :  service mysql stop   D\u00e9placer les fichiers vers le nouveau r\u00e9pertoire :   mv /var/lib/mysql /mysql-bin.* /chemindunouveaur\u00e9pertoire/mysql-bin   Red\u00e9marrer le service    service mysql start",
+            "location": "/AdminSys/BDD/MySQL/#changer-le-repertoire-de-logs-myqsl",
+            "text": "N\u00e9cessaire si trop d'IO sur le disque (log + datas)   my.cnf :    log-bin=/'chemindunouveaur\u00e9pertoire'/mysql-bin     Info  Purger un maximum de logs (PURGE BINLOG...) pour ne pas avoir trop de fichiers \u00e0 transf\u00e9rer.    Arr\u00eater le service :   service mysql stop   D\u00e9placer les fichiers vers le nouveau r\u00e9pertoire :   mv /var/lib/mysql /mysql-bin.* /chemindunouveaur\u00e9pertoire/mysql-bin   Red\u00e9marrer le service    service mysql start",
             "title": "Changer le r\u00e9pertoire de logs MyQSL"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#la-directive-bind-address",
-            "text": "Cette directive sert \u00e0 restreindre l'acc\u00e8s au service MySQLd. Seule la machine (et donc les logiciels outils install\u00e9s dessus) indiqu\u00e9e dans cette directive peut acc\u00e9der au service.   Si on veut acc\u00e9der que par la machine local (localhost) :  bind-address  =   127 .0.0.1  Si on veut uniquement un serveur distant :   bind-address  =   \"ip du serveur\"   Si on veut ouvrir \u00e0 tous les serveurs :   bind-address  =   0 .0.0.0  \u2139\ufe0f Il n'y a pas de demie mesure, la s\u00e9curisation doit se faire en amont pour les serveur de donn\u00e9es.",
+            "location": "/AdminSys/BDD/MySQL/#la-directive-bind-address",
+            "text": "Cette directive sert \u00e0 restreindre l'acc\u00e8s au service MySQLd. Seule la machine (et donc les logiciels outils install\u00e9s dessus) indiqu\u00e9e dans cette directive peut acc\u00e9der au service.   Si on veut acc\u00e9der que par la machine local (localhost) :  bind-address  =   127 .0.0.1  Si on veut uniquement un serveur distant :   bind-address  =   \"ip du serveur\"   Si on veut ouvrir \u00e0 tous les serveurs :   bind-address  =   0 .0.0.0   Info  Il n'y a pas de demie mesure, la s\u00e9curisation doit se faire en amont pour les serveur de donn\u00e9es.",
             "title": "La directive bind-address"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#securisation-du-service-mysql",
+            "location": "/AdminSys/BDD/MySQL/#securisation-du-service-mysql",
             "text": "#mysql_secure_installation   Cela permet de : \u2022 s'assurer de bien avoir un mot de passe root MySQL \u2022 emp\u00eacher d'acc\u00e9der en root MySQL depuis le r\u00e9seau (par le socket MySQL ; par contre on acc\u00e8de \u00e0 distance par SSH et ensuite on se connecte \u00e0 SQL une fois rentr\u00e9 dans la machine donc en \u00ab local \u00bb. \u2022 emp\u00eacher les connexions anonymes \u2022 supprimer la base de test (accessible par d\u00e9faut par tous, m\u00eame anonymes) et les privil\u00e8ges qui autorisent tout le monde \u00e0 acc\u00e9der \u00e0 toutes les bases commen\u00e7ant par test_",
             "title": "S\u00e9curisation du service MySQL"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#commandes-mysql-base",
+            "location": "/AdminSys/BDD/MySQL/#commandes-mysql-base",
             "text": "",
             "title": "Commandes MySQL (base)"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#se-connecter",
+            "location": "/AdminSys/BDD/MySQL/#se-connecter",
             "text": "mysql -h  'host ' -u  'user'  -p   mysql -h localhost -u root -p     -h premet de pr\u00e9ciser l'h\u00f4te (host)    -u permet de pr\u00e9ciser l'utilisateur (user)  -p indique que nous allons ensuite taper le mot de passe (password)",
             "title": "Se connecter"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#lister-les-bases",
+            "location": "/AdminSys/BDD/MySQL/#lister-les-bases",
             "text": "SHOW   DATABASES ;",
             "title": "Lister les bases"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#selectionner-une-base",
+            "location": "/AdminSys/BDD/MySQL/#selectionner-une-base",
             "text": "USE   \"nom de la bdd\" ;",
             "title": "Selectionner une base"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#lister-les-tables-dune-base",
+            "location": "/AdminSys/BDD/MySQL/#lister-les-tables-dune-base",
             "text": "si base selectionn\u00e9   SHOW   TABLES ;  \n- sinon  SHOW   TABLES   FROM   \"nom de la bdd\" ;",
             "title": "Lister les tables d'une base"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#creer-une-base",
+            "location": "/AdminSys/BDD/MySQL/#creer-une-base",
             "text": "CREATE   DATABASE   \"nom bdd\" ;",
             "title": "Cr\u00e9er une base"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#creer-un-utilisateur",
+            "location": "/AdminSys/BDD/MySQL/#creer-un-utilisateur",
             "text": "CREATE   USER   'user' @ 'localhost' ;",
             "title": "Cr\u00e9er un utilisateur"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#affecter-une-mot-de-passe-a-un-utilisateur",
+            "location": "/AdminSys/BDD/MySQL/#affecter-une-mot-de-passe-a-un-utilisateur",
             "text": "SET   PASSWORD   FOR   'user'   =   PASSWORD ( 'mot de passe' );",
             "title": "Affecter une mot de passe \u00e0 un utilisateur"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#donner-tout-les-droits-a-un-utilisateur-sur-un-bd-voir-les-privileges-pour-les-types-de-droits",
+            "location": "/AdminSys/BDD/MySQL/#donner-tout-les-droits-a-un-utilisateur-sur-un-bd-voir-les-privileges-pour-les-types-de-droits",
             "text": "GRANT   ALL   PRIVILEGES   ON   'BASE.*'   TO   user @ localhost   IDENTIFIED   by   'mot de passe' ;",
             "title": "Donner tout les droits \u00e0 un utilisateur sur un BD (voir \"Les privil\u00e8ges\" pour les types de droits)"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#revoquer-les-droits-dun-utilisateur",
+            "location": "/AdminSys/BDD/MySQL/#revoquer-les-droits-dun-utilisateur",
             "text": "REVOKE   ALL   PRIVILEGES   ON   'BASE.*'   FROM   user ;",
             "title": "Revoquer les droits d'un utilisateur"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#supprimer-un-compte-utilisateur",
+            "location": "/AdminSys/BDD/MySQL/#supprimer-un-compte-utilisateur",
             "text": "DROP   user   'test' @ 'localhost' ;",
             "title": "Supprimer un compte utilisateur"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#les-privileges-droits",
+            "location": "/AdminSys/BDD/MySQL/#les-privileges-droits",
             "text": "En mati\u00e8re de bases de donn\u00e9es, on parle de  privil\u00e8ges  pour parler des  droits . Ces privil\u00e8ges s'appliquent \u00e0 des comptes. Tel compte \u00e0 le droit de faire telle action.   Les information des utilisateurs et des privil\u00e8ges sont stock\u00e9es dans la base de donn\u00e9es mysql :   table user \u27a1\ufe0f utilisateurs(privil\u00e8ges globaux)    **4 tables pour stocker les privil\u00e8ges users : **   db  : privil\u00e8ges au niveau des bases de donn\u00e9es.   tables_priv  : privil\u00e8ges au niveau des tables.   columns_priv  : privil\u00e8ges au niveau des colonnes.   procs_priv  : privil\u00e8ges au niveau des routines (proc\u00e9dures et fonctions stock\u00e9es).",
             "title": "Les privil\u00e8ges (droits)"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#droits-principaux",
+            "location": "/AdminSys/BDD/MySQL/#droits-principaux",
             "text": "GRANT  : le droit de donner des droits  CREATE  : Cr\u00e9er des utilisateurs, des bases, des tables ou des index  DROP  : Supprimer des utilisateurs, des bases, des tables ou des index  ALTER  : modifier la structure de tables  DELETE  : Supprimer des donn\u00e9es  INSERT  : Ajouter des donn\u00e9es  UPDATE  : Modifier des donn\u00e9es",
             "title": "Droits principaux"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#exemple-tp-mysql",
+            "location": "/AdminSys/BDD/MySQL/#exemple-tp-mysql",
             "text": "\u2022 Ajouter le droit de faire un INSERT sur la table \u00ab table1 \u00bb pour l\u2019utilisateur \u201cinvite\u201d :   GRANT   INSERT   ON   table1   TO   invite ;   \u2022 Attribuer tous les droits \u00e0 l\u2019utilisateur \u201cinvite\u201d sur la base de donn\u00e9es utilis\u00e9e :   GRANT   ALL   ON   *   TO   invite ;   \u2022 Retirer le droit de faire un INSERT sur toutes les tables de la BDD utilis\u00e9e pour l\u2019utilisateur \u00ab invite \u00bb :  REVOKE   INSERT   ON   *   FROM   invite ;   \u2022 Retirer le droit de faire un INSERT sur la table \u00ab table1 \u00bb pour l\u2019utilisateur \u201cinvite\u201d :   REVOKE   INSERT   ON   table1   FROM   invite ;   \u2022 Retirer tous les droits \u00e0 l\u2019utilisateur \u201cinvite\u201d sur toutes les tables de la BDD utilis\u00e9e :   REVOKE   ALL   PRIVILEGES   ON   *   FROM   invite     - ne jamais donner  WITH GRANT OPTION  \u00e0 un utilisateur non administrateur syst\u00e8me",
             "title": "exemple (tp mysql) :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#supervision-et-tuning-mysql",
+            "location": "/AdminSys/BDD/MySQL/#supervision-et-tuning-mysql",
             "text": "",
             "title": "Supervision et \"tuning\" MySQL"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#mysqltuner",
+            "location": "/AdminSys/BDD/MySQL/#mysqltuner",
             "text": "Script  PERL  qui permet d'optimiser les performances d'un serveur de bases de donn\u00e9es MySQL en faisant un diagnostic, voir:  https://github.com/major/MySQLTuner-perl",
             "title": "MySQLTuner :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#mytop",
+            "location": "/AdminSys/BDD/MySQL/#mytop",
             "text": "Outil \"top like\" \u00e9crit en PERL mais pour les base de donn\u00e9es. (int\u00e9gr\u00e9 \u00e0 deb9)    utilisation :   mytop --prompt -d  \"base de donn\u00e9e\"   Si cela ne fonctionne pas , installer les d\u00e9pendances PERL suivante :   apt-get install libconfig-inifiles-perl  Mysql only :  fichier de confg d'exemple dans /usr/share /doc/mysql-server-5.X.XX",
             "title": "Mytop"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#tuning",
+            "location": "/AdminSys/BDD/MySQL/#tuning",
             "text": "key_buffer     SHOW   GLOBAL   STATUS   ligne \" key_reads/key_read_requests \" radio < 0.01 pour \u00e9viter acc\u00e8s disque   sinon augmenter le key_buffer   thread_concurrency  (machine multicoeur)   x2 nom de coeurs   Activer le log des requ\u00eates lentes     slow_query_log=1   slow_query_log_file=/var/log/mysql/mysql-slow.log    Et demander d'indiquer le temps le plus lent :     long_query_time = 2    Analyser les r\u00e9sultats:   tail -n  1000  /var/log/mysql/mysql-slow.log    check \"connection leakage\"   SHOW   PROCESSLIST ;    Analyser les verrous :   SHOW   STATUS   LIKE   'Table%' ;  SHOW   ENGINE   INNODB   STATUS   ( pour   innodb )",
             "title": "Tuning :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#sauvegarde-et-restauration",
+            "location": "/AdminSys/BDD/MySQL/#sauvegarde-et-restauration",
             "text": "",
             "title": "Sauvegarde et restauration"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#backup-a-chaud",
+            "location": "/AdminSys/BDD/MySQL/#backup-a-chaud",
             "text": "Utilisation de \" mysqldump \" exemples :    bases pr\u00e9cises :   mysqldump --user = root -p --databases mysql wiki > wiki_bd_backup.sql    all base :  mysqldump --user = root -p --all-databases  |  gzip > save.mysql.sql.gz    Possibilit\u00e9 d'exporter via outils graphiques (phpmyadmin ou autre)",
             "title": "backup \u00e0 chaud"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#backup-a-froid",
+            "location": "/AdminSys/BDD/MySQL/#backup-a-froid",
             "text": "Elle consiste \u00e0 sauvegarder les fichiers \u201cphysiques\u201d du serveur de donn\u00e9es. Elle n\u00e9cessite, par d\u00e9finition l\u2019arr\u00eat du serveur.   Aucune activit\u00e9 n\u2019est donc possible. C\u2019est un avantage pour le DBA mais il est parfois difficile voire impossible de stopper l\u2019activit\u00e9 en cours. En revanche si l\u2019on dispose d\u2019un r\u00e9plica on peut tout \u00e0 fait l\u2019envisager. Celui ci se \u201cre synchronisera\u201d \u00e0 son red\u00e9marrage. La sauvegarde \u00e0 froid consiste \u00e0 archiver certains fichiers du serveur.  /var/lib/mysql/  et  /var/log/mysql.log    Pour les tables MyISAM il s\u2019agit plus pr\u00e9cisement des fichiers  .FRM, .MYI et .MYD  Pour les tables InnoDB :  .FRM , les fichiers de donn\u00e9es (ibdata), les fichiers des tables .ibd (si vous \u00eates en innodb_file_per_table) et les fichiers journaux (iblogfile) interm\u00e9diaires.",
             "title": "backup \u00e0 froid :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#restauration",
+            "location": "/AdminSys/BDD/MySQL/#restauration",
             "text": "dump en selectionnant la base :  use   database ;  source   / chemin / du / fichier / backup . sql   ou pour le scripting :   mysql -u myuser -p < /chemin/du/fichier/backup.sql  (  automatisation totale avec --password  =  < mot de passe >   pour restaurer \u00e0 froid, il suffit de couper le service et de d\u00e9poser les fichiers aux bons emplacements",
             "title": "Restauration"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#automatisation-des-sauvegardes",
+            "location": "/AdminSys/BDD/MySQL/#automatisation-des-sauvegardes",
             "text": "",
             "title": "Automatisation des sauvegardes"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#automysqlbackup-script-tout-en-un",
+            "location": "/AdminSys/BDD/MySQL/#automysqlbackup-script-tout-en-un",
             "text": "Notification par mel   Compression et chiffrement des sauvegardes  Rotation des sauvegardes configurable   Sauvegardes incr\u00e9mentales   apt-get install automysqlbackup  \u00e0 configure dans   /etc/default/automysqlbackup",
             "title": "automysqlbackup, Script \"tout en un\" :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#rsnapshot",
+            "location": "/AdminSys/BDD/MySQL/#rsnapshot",
             "text": "apt-get install rsnapshot  voir  https://wiki.debian-fr.xyz/Rsnapshot",
             "title": "rsnapshot :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#outil-backup-a-chaud",
+            "location": "/AdminSys/BDD/MySQL/#outil-backup-a-chaud",
             "text": "https://www.percona.com/doc/percona-xtrabackup/LATEST/index.html",
             "title": "outil backup \u00e0 chaud :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#migration-mysql-vers-mariadb-deb9",
+            "location": "/AdminSys/BDD/MySQL/#migration-mysql-vers-mariadb-deb9",
             "text": "Maj du serveur Debian   apt-get update  &&  apt-get upgrade\napt-get install python-software-properties software-properties-common    Ajout des d\u00e9pot MariaDB voir :   https://downloads.mariadb.org/mariadb/repositories/    Si Mysql > 5.5 migration directement sur 10.1 sinon 5.5    update des paquets et installe :    apt-get update  &&  apt-get install mariadb-server",
             "title": "Migration Mysql vers MariaDB (deb&lt;9)"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#cluser-mariadbgalera",
+            "location": "/AdminSys/BDD/MySQL/#cluser-mariadbgalera",
             "text": "Cluster synchro en ma\u00eetre-ma\u00eetre  En production favoriser 3 serveurs minimum    Cr\u00e9ation du cluster :   service mysql stop\nmysqld --wsrep-new-cluster\nor\ngalera_new_cluster   sur les autres noeuds :   service mysql stop\nmysqld --wsrep_cluster_address = gcomm://ip ( ou nom DNS du serveur qui a cr\u00e9\u00e9 le cluster )    voir le statut de la syncrho :   SHOW   STATUS   LIKE   'wsrep_%'   configurer affin\u00e9 voir  http://www.severalnines.com/New-Galera-Configurator/index.html",
             "title": "Cluser MariaDB/Galera"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#troubleshoot",
+            "location": "/AdminSys/BDD/MySQL/#troubleshoot",
             "text": "",
             "title": "Troubleshoot"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#table-corrompue",
+            "location": "/AdminSys/BDD/MySQL/#table-corrompue",
             "text": "Message d'erreur     \u201cTable is marked as crashed and should be repaired\u201d     Solution :    repair   table   bd . tablename ;",
             "title": "Table corrompue"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#recuperation-de-mot-de-passe-root-mysql",
+            "location": "/AdminSys/BDD/MySQL/#recuperation-de-mot-de-passe-root-mysql",
             "text": "arr\u00eat du service et red\u00e9marrage en mode rescue  systemctl stop mysql  &&  mysqld_safe --skip-grant-tables  &    Connexion en root   mysql -u root \ndans la console mysql : #selectionner la base mysql  mysql >   use   mysql ;   #changement du password de l'()  mysql >   update   user   set   password = PASSWORD ( \"nouveaumotdepasse\" )   where   user = 'root' ;   #on sauvegarde  mysql >   flush   privileges ;   #et on quitte  mysql >   quit    arr\u00eat du mode rescue  systemctl stop mysql  test de connexion :  mysql -u root -p",
             "title": "R\u00e9cup\u00e9ration de mot de passe root MySQL"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#postgresql",
-            "text": "pour l'installation chercher LAMP",
+            "location": "/AdminSys/BDD/PostgreSQL/",
+            "text": "PostgreSQL\n\u00b6\n\n\n\u2139\ufe0f pour l'installation chercher LAMP\n\n\nCommande\n\u00b6\n\n\n\n\nModifier le mot de passe de l'utilisateur syst\u00e8me postgres \n\n\n\n\npasswd postgres\n\n\n\n\n\n\nModifier le mot de passe de l'utilisateur administrateur de la base postgres \n\n\n\n\nsu - postgres\npsql -d template1 -c \n\"ALTER USER postgres WITH PASSWORD 'mot de passe'\"\n\n\n\n\n\nou\n\n\npsql\n\npostgres\n=\n# \\password postgres\n\n\n\n\n\n\n\nCr\u00e9er une base \n\n\n\n\nsu - postgres\ncreatedb \n\"nom de la base\"\n\n\n\n\n\n\n\nSe connecter \u00e0 une base\n\n\n\n\npsql \n\"nom de la base\"\n\n\n\n\n\n\n\nhelp\n\n\n\n\n\\h\n\n\n\n\n\n\nfermer la connexion\n\n\n\n\n\\q\n\n\n\n\n\n\n\nCr\u00e9er un utilisateur \n\n\n\n\npsql -d template1 -c \n\"create user \"\nnom de l\n'user\" with password '\nmotdepasse\n'\n\"\n\n\n\n\n\n\n\nPour g\u00e9rer la base \u00e0 distance\n\n\n\n\nsu - postgres\npsql template1 < /usr/share/postgresql/9.6/extension/adminpack--1.0.sql\n\nexit\n\n\n\n\n\nou\n\n\npostgres\n=\n# CREATE EXTENSION adminpack;\n\nCREATE EXTENSION\n\n\n\n\n\n\nActivation des connexion TCP/IP \n\n\n\n\nvim /etc/postgresql/9.6/main/postgresql.conf\n  \nlisten_addresses\n \n=\n \n'localhost'\n\n  \npassword_encryption\n \n=\n on\n\nservice postgresql restart\n\n\n\n\nAdministration web (voir section LAMP pour l'installation) :\n\u00b6\n\n\napt-get install phppgadmin\n\n\n\n\n\n\nmodifier /etc/apache2/conf-available/phppgadmin.conf pour les acc\u00e8s\n\n\n\n\nln /etc/apache2/conf-available/phppgadmin.conf /etc/apache2/sites-available/.\na2ensite phppgadmin.conf\n\n\n\n\n\n\nrestart des services  apache2 et postresql et connexion au site http://ipduserv/phppgadmin\n\n\n\n\nR\u00e9plication \"streaming\" PostgresSQL\n\u00b6\n\n\nPr\u00e9requis\n\u00b6\n\n\n2 serveurs avec PostgreSQL (ma\u00eetre et esclave\n\n\n\n\n\n\nServeur ma\u00eetre :\n\u00b6\n\n\n\n\n\n\nvim /etc/postgresql/9.6/main/postgresql.conf     \n  \nlisten_addresse\n \n=\n \n'*'\n\n  \nwal_level\n \n=\n hot_standby \nwal_keep_segments\n \n=\n \n10\n\n  \nmax_wal_senders\n \n=\n \n3\n\n\n\n\n\n\n\nUser pour la r\u00e9plication\n\n\n\n\npsql -h localhost -U postgres -W -c CREATE USER utilrepl WITH REPLICATION PASSWORD \n'motdepasse'\n;\n\"\n\n\n\n\n\n\n\nDroit de connexion pour l'user de r\u00e9plication\n\n\n\n\nvim /etc/postgresql/9.6/main/pg_hba.conf \nhost    replication     utilrepl        ip esclave/cidr          md5\n\n\n\n\n\n\nOn arr\u00eate de le service\n\n\n\n\nservice postgresql stop\n\n\n\n\n\n\n\n\nServer escalve :\n\u00b6\n\n\n\n\n\n\nvim /etc/postgresql/9.6/main/postgresql.conf\n\nlisten_addresses\n \n=\n \n'*'\n \n\nhot_standby\n \n=\n on\n\n\n\n\n\n\nOn arr\u00eate l'esclave et on d\u00e9truit tous les fichiers de la base\n\n\n\n\n/etc/init.d/postgresql stop \n\ncd\n /var/lib/postgresql/9.6/main/ \nrm -rf * \nvim /var/lib/postgresql/9.6/main/recovery.conf \n\nprimary_conninfo\n \n=\n \n'host=serveur ma\u00eetre port=5432 user=utilrepl password=motdepasse'\n \n\nstandby_mode\n \n=\n on\n\n\n\n\n\n\nOn copie tout du ma\u00eetre vers l'esclave\n\n\n\n\nrsync -av /var/lib/postgresql/9.6/main/* ip esclave:/var/lib/postgresql/9.6/main/\n\n\n\n\n\n\nRed\u00e9marrer les services sur les deux serveurs\n\n\n\n\nservice postgresql start\n\n\n\n\n\n\ncheck de la r\u00e9plication\n\n\n\n\npsql -h localhost -U postgres -W -c \n\"select * from pg_stat_replication;\"\n\n\n\n\n\nTroubleshoot\n\u00b6\n\n\nR\u00e9cup\u00e9ration de mot de passe oubli\u00e9\n\u00b6\n\n\n\n\nArr\u00eat du service\n\n\n\n\nservice postgresql stop\n\n\n\n\n\n\nmodification de pg_hba.conf\n\n\n\n\nvim /usr/lib/pgsql/data/pg_hba.conf\n  \nlocal\n all all ...\n\n#modifier en : \n\n  \nlocal\n all postgres trust\n\n\n\n\n\n\nRelancer le service et changer le mdp \n\n\n\n\nservice postgresql start \nsu - postgres $ psql -d template1 -U postgres \nalter user postgres with password \n'votrenouveaumotdepasse'\n;\n\n\n#version une commande\n\n psql -U postgres template1 -c \n\"alter user postgres with password 'votrenouveaumotdepasse';\"\n\n\n\n\n\n\n\nRemodifier pg_hba.conf pour avoir \"local all postgres ident\" et relancer le service !\n\n\n\n\nTuning\n\u00b6\n\n\n\n\nvoir \nhttps://www.dsfc.net/logiciel-libre/postgresql/tuning-postgresql-configuration-memoire-linux/\n\n\n\n\nBackup\n\u00b6\n\n\n\n\nVoir section mysql sinon : \n\n\nhttp://www.pgbarman.org/",
             "title": "PostgreSQL"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#commande",
+            "location": "/AdminSys/BDD/PostgreSQL/#postgresql",
+            "text": "\u2139\ufe0f pour l'installation chercher LAMP",
+            "title": "PostgreSQL"
+        },
+        {
+            "location": "/AdminSys/BDD/PostgreSQL/#commande",
             "text": "Modifier le mot de passe de l'utilisateur syst\u00e8me postgres    passwd postgres   Modifier le mot de passe de l'utilisateur administrateur de la base postgres    su - postgres\npsql -d template1 -c  \"ALTER USER postgres WITH PASSWORD 'mot de passe'\"   ou  psql postgres = # \\password postgres    Cr\u00e9er une base    su - postgres\ncreatedb  \"nom de la base\"    Se connecter \u00e0 une base   psql  \"nom de la base\"    help   \\h   fermer la connexion   \\q    Cr\u00e9er un utilisateur    psql -d template1 -c  \"create user \" nom de l 'user\" with password ' motdepasse ' \"    Pour g\u00e9rer la base \u00e0 distance   su - postgres\npsql template1 < /usr/share/postgresql/9.6/extension/adminpack--1.0.sql exit   ou  postgres = # CREATE EXTENSION adminpack; \nCREATE EXTENSION   Activation des connexion TCP/IP    vim /etc/postgresql/9.6/main/postgresql.conf\n   listen_addresses   =   'localhost' \n   password_encryption   =  on\n\nservice postgresql restart",
             "title": "Commande"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#administration-web-voir-section-lamp-pour-linstallation",
+            "location": "/AdminSys/BDD/PostgreSQL/#administration-web-voir-section-lamp-pour-linstallation",
             "text": "apt-get install phppgadmin   modifier /etc/apache2/conf-available/phppgadmin.conf pour les acc\u00e8s   ln /etc/apache2/conf-available/phppgadmin.conf /etc/apache2/sites-available/.\na2ensite phppgadmin.conf   restart des services  apache2 et postresql et connexion au site http://ipduserv/phppgadmin",
             "title": "Administration web (voir section LAMP pour l'installation) :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#replication-streaming-postgressql",
+            "location": "/AdminSys/BDD/PostgreSQL/#replication-streaming-postgressql",
             "text": "",
             "title": "R\u00e9plication \"streaming\" PostgresSQL"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#prerequis",
+            "location": "/AdminSys/BDD/PostgreSQL/#prerequis",
             "text": "2 serveurs avec PostgreSQL (ma\u00eetre et esclave",
             "title": "Pr\u00e9requis"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#serveur-maitre",
+            "location": "/AdminSys/BDD/PostgreSQL/#serveur-maitre",
             "text": "vim /etc/postgresql/9.6/main/postgresql.conf     \n   listen_addresse   =   '*' \n   wal_level   =  hot_standby  wal_keep_segments   =   10 \n   max_wal_senders   =   3    User pour la r\u00e9plication   psql -h localhost -U postgres -W -c CREATE USER utilrepl WITH REPLICATION PASSWORD  'motdepasse' ; \"    Droit de connexion pour l'user de r\u00e9plication   vim /etc/postgresql/9.6/main/pg_hba.conf \nhost    replication     utilrepl        ip esclave/cidr          md5   On arr\u00eate de le service   service postgresql stop",
             "title": "Serveur ma\u00eetre :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#server-escalve",
+            "location": "/AdminSys/BDD/PostgreSQL/#server-escalve",
             "text": "vim /etc/postgresql/9.6/main/postgresql.conf listen_addresses   =   '*'   hot_standby   =  on   On arr\u00eate l'esclave et on d\u00e9truit tous les fichiers de la base   /etc/init.d/postgresql stop  cd  /var/lib/postgresql/9.6/main/ \nrm -rf * \nvim /var/lib/postgresql/9.6/main/recovery.conf  primary_conninfo   =   'host=serveur ma\u00eetre port=5432 user=utilrepl password=motdepasse'   standby_mode   =  on   On copie tout du ma\u00eetre vers l'esclave   rsync -av /var/lib/postgresql/9.6/main/* ip esclave:/var/lib/postgresql/9.6/main/   Red\u00e9marrer les services sur les deux serveurs   service postgresql start   check de la r\u00e9plication   psql -h localhost -U postgres -W -c  \"select * from pg_stat_replication;\"",
             "title": "Server escalve :"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#troubleshoot_1",
+            "location": "/AdminSys/BDD/PostgreSQL/#troubleshoot",
             "text": "",
             "title": "Troubleshoot"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#recuperation-de-mot-de-passe-oublie",
+            "location": "/AdminSys/BDD/PostgreSQL/#recuperation-de-mot-de-passe-oublie",
             "text": "Arr\u00eat du service   service postgresql stop   modification de pg_hba.conf   vim /usr/lib/pgsql/data/pg_hba.conf\n   local  all all ... #modifier en :  \n   local  all postgres trust   Relancer le service et changer le mdp    service postgresql start \nsu - postgres $ psql -d template1 -U postgres \nalter user postgres with password  'votrenouveaumotdepasse' ;  #version une commande \n psql -U postgres template1 -c  \"alter user postgres with password 'votrenouveaumotdepasse';\"    Remodifier pg_hba.conf pour avoir \"local all postgres ident\" et relancer le service !",
             "title": "R\u00e9cup\u00e9ration de mot de passe oubli\u00e9"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#tuning_1",
+            "location": "/AdminSys/BDD/PostgreSQL/#tuning",
             "text": "voir  https://www.dsfc.net/logiciel-libre/postgresql/tuning-postgresql-configuration-memoire-linux/",
             "title": "Tuning"
         },
         {
-            "location": "/AdminSys/bdd/generalite/#backup",
+            "location": "/AdminSys/BDD/PostgreSQL/#backup",
             "text": "Voir section mysql sinon :   http://www.pgbarman.org/",
             "title": "Backup"
         },

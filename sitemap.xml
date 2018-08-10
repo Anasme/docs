@@ -2,32 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://</loc>
-     <lastmod>2018-08-01</lastmod>
+     <lastmod>2018-08-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https:///AdminSys/hardening/</loc>
-     <lastmod>2018-08-01</lastmod>
+     <lastmod>2018-08-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https:///AdminSys/bdd/generalite/</loc>
-     <lastmod>2018-08-01</lastmod>
+     <loc>https:///AdminSys/BDD/Environnement Réseau/</loc>
+     <lastmod>2018-08-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https:///AdminSys/BDD/MySQL/</loc>
+     <lastmod>2018-08-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https:///AdminSys/BDD/PostgreSQL/</loc>
+     <lastmod>2018-08-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https:///Code/bash/</loc>
-     <lastmod>2018-08-01</lastmod>
+     <lastmod>2018-08-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https:///Code/python/</loc>
-     <lastmod>2018-08-01</lastmod>
+     <lastmod>2018-08-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https:///DevOps/ansible/</loc>
-     <lastmod>2018-08-01</lastmod>
+     <lastmod>2018-08-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
