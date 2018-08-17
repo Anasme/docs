@@ -2,7 +2,7 @@
 site_name: Anasme's Docs
 site_description: Mon site agrégateur de docs orienté DevOps/AdminSYS
 site_author: Anas Asmi
-site_url: https://
+site_url: https://anasme.github.io/docs
 markdown_extensions:
   - admonition
 
@@ -17,11 +17,14 @@ copyright: '© Anas Asmi 2018'
 theme:
   name: 'material'
   palette:
-    primary: 'Cyan'
+    primary: 'light-blue'
     accent: 'deep-orange'
   font:
-    text: 'Courgette'
-    code: 'Quicksand'
+          #text: 'Concert One regular'
+          #text: 'Nunito Semibold'
+          #text: 'Bubblegum Sans'
+    text: 'Quicksand'
+    code: 'Exo 2'
   logo: 
   #icon: 'whatshot'
     icon: 'fingerprint'
@@ -39,7 +42,7 @@ extra:
       link: https://twitter.com/anasasmi
     - type: linkedin
       link: https://linkedin.com/in/anasasmi
-
+  disqus: 'anasmedocs'
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
@@ -68,26 +71,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-# Page tree
-nav:
-  - Material: index.md
-  - Getting started: getting-started.md
-  - Extensions:
-    - Admonition: extensions/admonition.md
-    - CodeHilite: extensions/codehilite.md
-    - Footnotes: extensions/footnotes.md
-    - Metadata: extensions/metadata.md
-    - Permalinks: extensions/permalinks.md
-    - PyMdown: extensions/pymdown.md
-  - Specimen: specimen.md
-  - Customization: customization.md
-  - Compliance with GDPR: compliance.md
-  - Release notes: release-notes.md
-  - Author's notes: authors-notes.md
-  - Contributing: contributing.md
-  - License: license.md
-
 # Google Analytics
 google_analytics:
-  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+  - UA-112015225-2
   - auto
