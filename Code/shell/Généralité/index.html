@@ -1,0 +1,1408 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Mon site agrégateur de docs orienté DevOps/AdminSYS">
+      
+      
+        <link rel="canonical" href="https://anasme.github.io/docs/Code/shell/Généralité/">
+      
+      
+        <meta name="author" content="Anas Asmi">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
+      
+        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
+      
+        <meta name="lang:search.language" content="fr">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Aucun document trouvé">
+      
+        <meta name="lang:search.result.one" content="1 document trouvé">
+      
+        <meta name="lang:search.result.other" content="# documents trouvés">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+    
+    
+      
+        <title>Généralité - Anasme's Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,400i,700|Exo+2">
+        <style>body,input{font-family:"Quicksand","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Exo 2","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#generalite" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://anasme.github.io/docs" title="Anasme's Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">fingerprint</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Anasme's Docs
+              </span>
+              <span class="md-header-nav__topic">
+                Généralité
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Taper pour démarrer la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Anasme/docs/" title="Aller au dépôt" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      anasme/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." title="Welcome to anasme's doc !" class="md-tabs__link">
+        Welcome to anasme's doc !
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../AdminSys/OpenVPN/" title="AdminSys" class="md-tabs__link">
+          AdminSys
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../git/" title="Code" class="md-tabs__link md-tabs__link--active">
+          Code
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../DevOps/Ansible/FOR-CEPTION/" title="DevOps" class="md-tabs__link">
+          DevOps
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://anasme.github.io/docs" title="Anasme's Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">fingerprint</i>
+      
+    </a>
+    Anasme's Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Anasme/docs/" title="Aller au dépôt" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      anasme/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome to anasme's doc !" class="md-nav__link">
+      Welcome to anasme's doc !
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      AdminSys
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        AdminSys
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/OpenVPN/" title="OpenVPN" class="md-nav__link">
+      OpenVPN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      BDD
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        BDD
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/BDD/Environnement Réseau/" title="Environnement réseau" class="md-nav__link">
+      Environnement réseau
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/BDD/MySQL/" title="MYSQL" class="md-nav__link">
+      MYSQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/BDD/PostgreSQL/" title="PostgreSQL" class="md-nav__link">
+      PostgreSQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Stockage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Stockage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/Stockage/GlusterFS/" title="GlusterFS" class="md-nav__link">
+      GlusterFS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/Stockage/LVM/" title="LVM" class="md-nav__link">
+      LVM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/Stockage/Raid logiciel linux/" title="RAID" class="md-nav__link">
+      RAID
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/Stockage/notions générales/" title="Notions générales" class="md-nav__link">
+      Notions générales
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/" title="GIT" class="md-nav__link">
+      GIT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/Les_bases/" title="Les bases" class="md-nav__link">
+      Les bases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/Les_fonctions/" title="Les bases" class="md-nav__link">
+      Les bases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/les_structures_conditionnelles/" title="Les bases" class="md-nav__link">
+      Les bases
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Généralité
+      </label>
+    
+    <a href="./" title="Généralité" class="md-nav__link md-nav__link--active">
+      Généralité
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#les-variables" title="Les variables" class="md-nav__link">
+    Les variables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-types-de-variables" title="3 types de variables" class="md-nav__link">
+    3 types de variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affectation" title="Affectation" class="md-nav__link">
+    Affectation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identification" title="Identification" class="md-nav__link">
+    Identification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substitution-de-variable" title="Substitution de variable" class="md-nav__link">
+    Substitution de variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simples-et-doubles-quotes" title="Simples et doubles quotes" class="md-nav__link">
+    Simples et doubles quotes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delimitation" title="Délimitation" class="md-nav__link">
+    Délimitation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substitution-de-commandes" title="Substitution de commandes" class="md-nav__link">
+    Substitution de commandes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affectation-par-lecture" title="Affectation par lecture" class="md-nav__link">
+    Affectation par lecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-variables-denvironnement" title="Les variables d'environnement" class="md-nav__link">
+    Les variables d'environnement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-boucles-et-conditions" title="Tests, boucles et conditions" class="md-nav__link">
+    Tests, boucles et conditions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-branchements-conditionnels" title="les branchements conditionnels" class="md-nav__link">
+    les branchements conditionnels
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-if" title="le 'if'" class="md-nav__link">
+    le 'if'
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-boucles" title="Les boucles" class="md-nav__link">
+    Les boucles
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Commentaires" class="md-nav__link md-nav__link--active">
+            Commentaires
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      DevOps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        DevOps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Ansible
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Ansible
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DevOps/Ansible/FOR-CEPTION/" title="FOR CEPTION" class="md-nav__link">
+      FOR CEPTION
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#les-variables" title="Les variables" class="md-nav__link">
+    Les variables
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-types-de-variables" title="3 types de variables" class="md-nav__link">
+    3 types de variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affectation" title="Affectation" class="md-nav__link">
+    Affectation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identification" title="Identification" class="md-nav__link">
+    Identification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substitution-de-variable" title="Substitution de variable" class="md-nav__link">
+    Substitution de variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simples-et-doubles-quotes" title="Simples et doubles quotes" class="md-nav__link">
+    Simples et doubles quotes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delimitation" title="Délimitation" class="md-nav__link">
+    Délimitation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substitution-de-commandes" title="Substitution de commandes" class="md-nav__link">
+    Substitution de commandes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affectation-par-lecture" title="Affectation par lecture" class="md-nav__link">
+    Affectation par lecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-variables-denvironnement" title="Les variables d'environnement" class="md-nav__link">
+    Les variables d'environnement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-boucles-et-conditions" title="Tests, boucles et conditions" class="md-nav__link">
+    Tests, boucles et conditions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-branchements-conditionnels" title="les branchements conditionnels" class="md-nav__link">
+    les branchements conditionnels
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-if" title="le 'if'" class="md-nav__link">
+    le 'if'
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-boucles" title="Les boucles" class="md-nav__link">
+    Les boucles
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Commentaires" class="md-nav__link md-nav__link--active">
+            Commentaires
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Anasme/docs/edit/master/docs/Code/shell/Généralité.md" title="Editer cette page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="generalite">Généralité<a class="headerlink" href="#generalite" title="Permanent link">&para;</a></h1>
+<h2 id="les-variables">Les variables<a class="headerlink" href="#les-variables" title="Permanent link">&para;</a></h2>
+<h4 id="3-types-de-variables"><strong>3 types de variables</strong><a class="headerlink" href="#3-types-de-variables" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Variables utilisateur : <em>Ce sont les variables que le développeur définit de manière locale dans son programme</em></li>
+<li>Variables d'environnement : <em>Ce sont des variables définies de manière globales et qui sont utilisables dans différents programmes</em></li>
+<li>Paramètres de position : <em>À l'appel d'un script, ce sont les arguments passés en paramètres sur la ligne de commandes</em></li>
+</ul>
+<h4 id="affectation">Affectation<a class="headerlink" href="#affectation" title="Permanent link">&para;</a></h4>
+<p>Opérateur = </p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Affectation</span>
+<span class="nv">var1</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">var2</span><span class="o">=</span><span class="m">2</span>
+</pre></div>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<div class="codehilite"><pre><span></span>L&#39;affectation via l’opérateur = est une commande &quot;variable=valeur&quot;Il n&#39;y a donc pas d&#39;espaces entre le nom de la variable, l&#39;opérateur et la valeur
+</pre></div>
+
+<h4 id="identification">Identification<a class="headerlink" href="#identification" title="Permanent link">&para;</a></h4>
+<p>En bash une variable est indentifiée par un nom, c'est à dire une suite de lettre. elle peut contenir une des chiffres ou des caractères "souligné" mais ne peut commencer par un chiffre.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Bien</span>
+<span class="nv">maVariable</span><span class="o">=</span><span class="s2">&quot;Un nom de variable correct&quot;</span>
+<span class="nv">ma_variable</span><span class="o">=</span><span class="s2">&quot;Un nom de variable correct&quot;</span>
+<span class="nv">var1</span><span class="o">=</span><span class="s2">&quot;Un nom de variable correct&quot;</span>
+
+<span class="c1"># Pas bien</span>
+c<span class="err">&#39;</span>est quoi ce <span class="nv">nom</span><span class="o">=</span><span class="s2">&quot;Un nom de variable incorrect&quot;</span>
+<span class="nv">123soleil</span><span class="o">=</span><span class="s2">&quot;Un nom de variable incorrect&quot;</span>
+</pre></div>
+
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+</div>
+<p>Les variables sous bash ne sont pas typés ! Les variables sont stockées sous forme de chaîne de caractères.</p>
+<h4 id="substitution-de-variable">Substitution de variable<a class="headerlink" href="#substitution-de-variable" title="Permanent link">&para;</a></h4>
+<p>Pour appeler une variables et obtenir sa valeur, il faut placé un <code>$</code> devant sza référence.</p>
+<div class="codehilite"><pre><span></span><span class="c1">#affectation</span>
+<span class="nv">Prenom</span><span class="o">=</span>Anas
+<span class="c1">#substitution</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$Prenom</span><span class="s2"> est un prénom original...&quot;</span>
+</pre></div>
+
+<h4 id="simples-et-doubles-quotes">Simples et doubles quotes<a class="headerlink" href="#simples-et-doubles-quotes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Les doubles quotes (guillemets partiels ou protection faibles) permettent de grouper des mots sans annuler le remplacement des variables :</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">#affectation</span>
+<span class="nv">Prenom</span><span class="o">=</span>Anas
+<span class="c1">#substitution</span>
+<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$Prenom</span><span class="s2"> est un prénom original...&quot;</span>
+<span class="c1">#affichage</span>
+Anas est un prénom original...
+</pre></div>
+
+<ul>
+<li>Les simples quotes (Guillemets complets ou protection forte) permettent de grouper des mots et annulent toute évaluation : </li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">#affectation</span>
+<span class="nv">Prenom</span><span class="o">=</span>Anas
+<span class="c1">#substitution</span>
+<span class="nb">echo</span> <span class="s1">&#39;$Prenom est un prénom original...&#39;</span>
+<span class="c1">#affichage</span>
+<span class="nv">$Prenom</span> est un prénom original...
+</pre></div>
+
+<h4 id="delimitation">Délimitation<a class="headerlink" href="#delimitation" title="Permanent link">&para;</a></h4>
+<p>Les variables d'environnement sont des variables globales qui permettent de définir des valeurs pouvant être utilisées dans n'importe quel programme exécuté dans le même environnement.</p>
+<p>La liste des variables d'environnement est donnée par la commande env</p>
+<p>Comme pour les Les accolades ${variable} permettent de délimiter le nom d'une variable.</p>
+<div class="codehilite"><pre><span></span><span class="nv">cash</span><span class="o">=</span><span class="s2">&quot;15&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Montant : </span><span class="nv">$cash0</span><span class="s2"> Euro&quot;</span>
+Montant :  Euro
+<span class="nb">echo</span> <span class="s2">&quot;Montant : </span><span class="si">${</span><span class="nv">cash</span><span class="si">}</span><span class="s2">0 Euro&quot;</span>
+Montant : <span class="m">150</span> Euro
+</pre></div>
+
+<h4 id="substitution-de-commandes">Substitution de commandes<a class="headerlink" href="#substitution-de-commandes" title="Permanent link">&para;</a></h4>
+<p>Affectation du résultat d'une commande dans une variable : <code>$(commande)</code></p>
+<div class="codehilite"><pre><span></span><span class="nv">repCourant</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;Vous êtes dans le répertoire </span><span class="nv">$repCourant</span><span class="s2">&quot;</span>
+
+Vous êtes dans le répertoire /home/joda
+
+
+<span class="nv">nbProcesseur</span><span class="o">=</span><span class="k">$(</span>cat /proc/cpuinfo <span class="p">|</span> grep ^processor <span class="p">|</span> wc -l<span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;Le nombre de processeur s&#39;élève à </span><span class="nv">$nbProcesseur</span><span class="s2">&quot;</span>
+
+Le nombre de processeur s<span class="err">&#39;</span>élève à <span class="m">6</span>
+</pre></div>
+
+<h4 id="affectation-par-lecture">Affectation par lecture<a class="headerlink" href="#affectation-par-lecture" title="Permanent link">&para;</a></h4>
+<p>La commande <code>read</code> permet d'affecter une ou des valeurs à une ou des variables.</p>
+<div class="codehilite"><pre><span></span><span class="nb">read</span> var1 var2
+
+valeur1 valeur2
+
+<span class="nb">echo</span> <span class="s2">&quot;La première valeur saisie est : </span><span class="nv">$var1</span><span class="s2">&quot;</span>
+
+La première valeur saisie est : valeur1
+
+<span class="nb">echo</span> <span class="s2">&quot;La seconde valeur saisie est : </span><span class="nv">$var2</span><span class="s2">&quot;</span>
+
+La seconde valeur saisie est : valeur2
+
+BASH $&gt;
+</pre></div>
+
+<div class="codehilite"><pre><span></span>!!! note
+Si il y a moins de variables que de mots saisis, le BASH affecte à la dernière variable tous les mots non affectés.Si il y a plus de variables que de mots saisis, le BASH affecte une chaîne vide aux variables non utilisées.Si il n&#39;y a pas de variables en paramètre, la ligne lue est enregistrée dans la variable prédéfinie : REPLY
+</pre></div>
+
+<p><strong>Les paramètres optionnels</strong></p>
+<ul>
+<li>***-p** 'Texte' *: Affiche une chaine d'appel</li>
+<li><strong><em>-s</em></strong> : N'affiche pas ce que l'utilisateur saisi</li>
+<li><strong><em>-n val</em></strong> : Limite le nombre de caractère</li>
+<li><strong><em>-t val</em></strong> : Limite la saisie au temps indiqué en seconde</li>
+</ul>
+<h4 id="les-variables-denvironnement">Les variables d'environnement<a class="headerlink" href="#les-variables-denvironnement" title="Permanent link">&para;</a></h4>
+<p><strong>Accéder aux valeurs</strong></p>
+<p>Les variables d'environnement sont des variables globales qui permettent de définir des valeurs pouvant être utilisées dans n'importe quel programme exécuté dans le même environnement.</p>
+<p>La liste des variables d'environnement est donnée par la commande <code>env</code></p>
+<h2 id="tests-boucles-et-conditions">Tests, boucles et conditions<a class="headerlink" href="#tests-boucles-et-conditions" title="Permanent link">&para;</a></h2>
+<h3 id="les-branchements-conditionnels">les branchements conditionnels<a class="headerlink" href="#les-branchements-conditionnels" title="Permanent link">&para;</a></h3>
+<h4 id="le-if">le 'if'<a class="headerlink" href="#le-if" title="Permanent link">&para;</a></h4>
+<p>syntax : si... [[OU SI...][SINON...]]</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">stVal</span><span class="o">=</span><span class="s2">&quot;Bruno&quot;</span>
+<span class="c1"># Branchement conditionnel</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$stVal</span> <span class="o">==</span> <span class="s2">&quot;Bruno&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="c1"># Premier bloc d&#39;instructions</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Salut Bruno !&quot;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$stVal</span> <span class="o">==</span> <span class="s2">&quot;Michel&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="c1"># Deuxième bloc d&#39;instructions</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Bien le bonjour Michel&quot;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$stVal</span> <span class="o">==</span> <span class="s2">&quot;Jean&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="c1"># Troisième bloc d&#39;instructions</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Hé Jean, ça va ?&quot;</span>
+<span class="k">else</span>
+  <span class="c1"># Bloc d&#39;instructions par défaut</span>
+  <span class="nb">echo</span> <span class="s2">&quot;J&#39;te connais pas, ouste !&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+
+<p><strong>Branchement conditionnel : Le "if"</strong></p>
+<p>Un branchement conditionnel de la forme SI ... [[OU SI ...] [SINON ...]] permet de déterminer, selon le résultat de l'expression logique (vrai ou faux) renvoyé par le prédicat, quel bloc d'instructions sera exécuté.</p>
+<div class="codehilite"><pre><span></span>#!/bin/bash
+
+stVal=&quot;Bruno&quot;
+# Branchement conditionnel
+if [ $stVal == &quot;Bruno&quot; ]; then
+    # Premier bloc d&#39;instructions
+    echo &quot;Salut Bruno !&quot;
+elif [ $stVal == &quot;Michel&quot; ]; then
+    # Deuxième bloc d&#39;instructions
+    echo &quot;Bien le bonjour Michel&quot;
+elif [ $stVal == &quot;Jean&quot; ]; then
+    # Troisième bloc d&#39;instructions
+    echo &quot;Hé Jean, ça va ?&quot;
+else
+    # Bloc d&#39;instructions par défaut
+    echo &quot;J&#39;te connais pas, ouste !&quot;
+fi
+</pre></div>
+
+<div class="codehilite"><pre><span></span>REMARQUEIl peut y avoir un nombre quelconque de elif et le dernier else est toujours facultatif
+</pre></div>
+
+<p><strong>Branchement multiple : Le "case"</strong></p>
+<p>Un branchement multiple permet de déterminer si la valeur sur laquelle ce branchement est effectué est égale à l'une des constantes.</p>
+<p>Dans le cas d'une correspondance, le bloc d'instructions associé à cette constante sera exécuté, sinon le <strong>BASH</strong> exécutera le bloc d'instructions correspondant à la constante par défaut, symbolisée par *).</p>
+<div class="codehilite"><pre><span></span>#!/bin/bash
+
+stVal=&quot;Jean&quot;
+case $stVal in
+  &quot;Bruno&quot;)
+    # Premier bloc d&#39;instructions
+    echo &quot;Salut Bruno !&quot;
+    ;;
+  &quot;Michel&quot;)
+    # Deuxième bloc d&#39;instructions
+    echo &quot;Bien le bonjour Michel&quot;
+    ;;
+  &quot;Jean&quot;)
+    # Troisième bloc d&#39;instructions
+    echo &quot;Hé Jean, ça va ?&quot;
+    ;;
+  *)
+  # Bloc d&#39;instructions par défaut
+    echo &quot;J&#39;te connais pas, ouste !&quot;
+    ;;
+esac
+REMARQUEIl peut y avoir un nombre quelconque de constante et celle par défaut est facultative
+</pre></div>
+
+<h2 id="les-boucles">Les boucles<a class="headerlink" href="#les-boucles" title="Permanent link">&para;</a></h2>
+<p><strong>La boucle While</strong></p>
+<p>Dans une boucle while, tant que le test est vérifié, le bloc d'instructions est exécuté. Si dès le départ le test n'est pas vérifié, le bloc d'instructions ne sera jamais exécuté.</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">i</span><span class="o">=</span><span class="m">0</span>
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$i</span> -lt <span class="s2">&quot;10&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span>
+  <span class="c1"># Bloc d&#39;instructions</span>
+  <span class="o">((</span>i++<span class="o">))</span>
+  <span class="nb">echo</span> <span class="nv">$i</span>
+<span class="k">done</span>
+</pre></div>
+
+<p><strong>La boucle For (1)</strong></p>
+<p>Dans une boucle for ... in, le bloc d'instructions est exécuté autant de fois qu'il y a de valeurs en entrée. À chaque itération, le bloc d'instructions s’exécutera avec chacune des valeurs.</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">vals</span><span class="o">=</span><span class="s1">&#39;/mnt /dev /proc /sys /tmp /usr/bin /var/tmp&#39;</span>
+<span class="k">for</span> i in <span class="nv">$vals</span><span class="p">;</span> <span class="k">do</span>
+  <span class="c1"># Bloc d&#39;instructions</span>
+  <span class="nb">echo</span> <span class="nv">$i</span> <span class="c1"># 1er Passage avec &quot;/mnt&quot;, 2ème avec &quot;/dev&quot;, 3ème avec &quot;/proc&quot;...</span>
+<span class="k">done</span>
+</pre></div>
+
+<p><strong>La boucle For (2)</strong></p>
+<p>Dans une boucle for, le bloc d'instructions est exécuté tant qu'il y a de valeurs générées respectant la condition. À chaque itération, le bloc d'instructions s’exécutera avec chacune de ces valeurs.</p>
+<div class="codehilite"><pre><span></span>#!/bin/bash
+for ((i = 10; i &gt;= 0; i -= 1)); do
+  # Bloc d&#39;instructions
+  echo $i
+done 
+</pre></div>
+
+<p><strong>IFS (Internal Field Separator)</strong></p>
+<p>Lors de l’exécution d'une boucle for ... in, le <strong>BASH</strong> utilise la valeur de la variable <strong>IFS</strong> (<em>espace, tabulation, retour à la ligne</em>) pour isoler dans la chaîne d'entrée chacun des éléments constituants de la boucle.</p>
+<div class="codehilite"><pre><span></span>BASH $&gt; vals=&#39;/mnt /dev /proc /sys /tmp /usr/bin /var/tmp&#39;BASH $&gt; for i in $vals; do echo $i; done/mnt/dev/proc/sys/tmp/usr/bin/var/tmpBASH $&gt; 
+</pre></div>
+
+<p>Dans certains cas, un problème survient quand le flux de donnée doit contenir un espace.</p>
+<div class="codehilite"><pre><span></span>BASH $&gt; vals=&#39;/mnt /dev /proc /sys /tmp /usr/bin /home/joda/Mes Documents&#39;BASH $&gt; for i in $vals; do echo $i; done/mnt/dev/proc/sys/tmp/usr/bin/home/joda/MesDocumentsBASH $&gt; 
+</pre></div>
+
+<p>La solution consiste a changer la valeur de la variable <strong>IFS</strong> avec un caractère choisit. Par exemple dans le cas de nom de fichier ou de répertoire, il est plus approprier de séparer la liste avec une virgule.</p>
+<div class="codehilite"><pre><span></span>BASH $&gt; IFS=$&#39;,&#39;BASH $&gt; vals=&#39;/mnt,/dev,/proc,/sys,/tmp,/usr/bin,/home/joda/Mes Documents&#39;BASH $&gt; for i in $vals; do echo $i; done/mnt/dev/proc/sys/tmp/usr/bin/home/joda/Mes DocumentsBASH $&gt; unset IFSBASH $&gt; 
+ATTENTIONIl ne faut pas oublier de réinitialiser la variable IFS avec la commande unset pour qu&#39;elle retrouve sa valeur par défaut. En effet le changement de valeur de cette variable pourrait impacter le reste de votre script**La boucle For (1)**
+</pre></div>
+
+<p>Dans une boucle for ... in, le bloc d'instructions est exécuté autant de fois qu'il y a de valeurs en entrée. À chaque itération, le bloc d'instructions s’exécutera avec chacune des valeurs.</p>
+<div class="codehilite"><pre><span></span>#!/bin/bash
+vals=&#39;/mnt /dev /proc /sys /tmp /usr/bin /var/tmp&#39;
+for i in $vals; do
+  # Bloc d&#39;instructions
+  echo $i # 1er Passage avec &quot;/mnt&quot;, 2ème avec &quot;/dev&quot;, 3ème avec &quot;/proc&quot;...
+done
+</pre></div>
+
+<p><strong>La boucle For (2)</strong></p>
+<p>Dans une boucle for, le bloc d'instructions est exécuté tant qu'il y a de valeurs générées respectant la condition. À chaque itération, le bloc d'instructions s’exécutera avec chacune de ces valeurs.</p>
+<div class="codehilite"><pre><span></span>#!/bin/bash
+for ((i = 10; i &gt;= 0; i -= 1)); do
+  # Bloc d&#39;instructions
+  echo $i
+done 
+</pre></div>
+
+<p><strong>IFS (Internal Field Separator)</strong></p>
+<p>Lors de l’exécution d'une boucle for ... in, le <strong>BASH</strong> utilise la valeur de la variable <strong>IFS</strong> (<em>espace, tabulation, retour à la ligne</em>) pour isoler dans la chaîne d'entrée chacun des éléments constituants de la boucle.</p>
+<div class="codehilite"><pre><span></span>BASH $&gt; vals=&#39;/mnt /dev /proc /sys /tmp /usr/bin /var/tmp&#39;BASH $&gt; for i in $vals; do echo $i; done/mnt/dev/proc/sys/tmp/usr/bin/var/tmpBASH $&gt; 
+</pre></div>
+
+<p>Dans certains cas, un problème survient quand le flux de donnée doit contenir un espace.</p>
+<div class="codehilite"><pre><span></span>BASH $&gt; vals=&#39;/mnt /dev /proc /sys /tmp /usr/bin /home/joda/Mes Documents&#39;BASH $&gt; for i in $vals; do echo $i; done/mnt/dev/proc/sys/tmp/usr/bin/home/joda/MesDocumentsBASH $&gt; 
+</pre></div>
+
+<p>La solution consiste a changer la valeur de la variable <strong>IFS</strong> avec un caractère choisit. Par exemple dans le cas de nom de fichier ou de répertoire, il est plus approprier de séparer la liste avec une virgule.</p>
+<div class="codehilite"><pre><span></span>BASH $&gt; IFS=$&#39;,&#39;BASH $&gt; vals=&#39;/mnt,/dev,/proc,/sys,/tmp,/usr/bin,/home/joda/Mes Documents&#39;BASH $&gt; for i in $vals; do echo $i; done/mnt/dev/proc/sys/tmp/usr/bin/home/joda/Mes DocumentsBASH $&gt; unset IFSBASH $&gt; 
+ATTENTIONIl ne faut pas oublier de réinitialiser la variable IFS avec la commande unset pour qu&#39;elle retrouve sa valeur par défaut. En effet le changement de valeur de cette variable pourrait impacter le reste de votre script
+</pre></div>
+
+<p>test : </p>
+<p>double {[[[([[]#]#<sub>[[#]</sub>[#~]])]]]}</p>
+                
+                  
+                
+              
+              
+                
+
+
+  <h2 id="__comments">Commentaires</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://anasme.github.io/docs/Code/shell/Généralité/";
+      this.page.identifier =
+        "/Code/shell/Généralité/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//anasmedocs.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../python/les_structures_conditionnelles/" title="Les bases" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Précédent
+                </span>
+                Les bases
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../DevOps/Ansible/FOR-CEPTION/" title="FOR CEPTION" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Suivant
+                </span>
+                FOR CEPTION
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © Anas Asmi 2018
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/anasme" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/anasasmi" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/anasasmi" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.30f6b8b1.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.fr.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"../../.."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-112015225-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

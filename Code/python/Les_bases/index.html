@@ -1,0 +1,1582 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Mon site agrégateur de docs orienté DevOps/AdminSYS">
+      
+      
+        <link rel="canonical" href="https://anasme.github.io/docs/Code/python/Les_bases/">
+      
+      
+        <meta name="author" content="Anas Asmi">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copier dans le presse-papier">
+      
+        <meta name="lang:clipboard.copied" content="Copié dans le presse-papier">
+      
+        <meta name="lang:search.language" content="fr">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="Aucun document trouvé">
+      
+        <meta name="lang:search.result.one" content="1 document trouvé">
+      
+        <meta name="lang:search.result.other" content="# documents trouvés">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+    
+    
+      
+        <title>Les bases - Anasme's Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,400i,700|Exo+2">
+        <style>body,input{font-family:"Quicksand","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Exo 2","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#les-bases" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://anasme.github.io/docs" title="Anasme's Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">fingerprint</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Anasme's Docs
+              </span>
+              <span class="md-header-nav__topic">
+                Les bases
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Taper pour démarrer la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Anasme/docs/" title="Aller au dépôt" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      anasme/docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." title="Welcome to anasme's doc !" class="md-tabs__link">
+        Welcome to anasme's doc !
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../AdminSys/OpenVPN/" title="AdminSys" class="md-tabs__link">
+          AdminSys
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../git/" title="Code" class="md-tabs__link md-tabs__link--active">
+          Code
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../DevOps/Ansible/FOR-CEPTION/" title="DevOps" class="md-tabs__link">
+          DevOps
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://anasme.github.io/docs" title="Anasme's Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon">fingerprint</i>
+      
+    </a>
+    Anasme's Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Anasme/docs/" title="Aller au dépôt" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      anasme/docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Welcome to anasme's doc !" class="md-nav__link">
+      Welcome to anasme's doc !
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      AdminSys
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        AdminSys
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/OpenVPN/" title="OpenVPN" class="md-nav__link">
+      OpenVPN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      BDD
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        BDD
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/BDD/Environnement Réseau/" title="Environnement réseau" class="md-nav__link">
+      Environnement réseau
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/BDD/MySQL/" title="MYSQL" class="md-nav__link">
+      MYSQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/BDD/PostgreSQL/" title="PostgreSQL" class="md-nav__link">
+      PostgreSQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Stockage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Stockage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/Stockage/GlusterFS/" title="GlusterFS" class="md-nav__link">
+      GlusterFS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/Stockage/LVM/" title="LVM" class="md-nav__link">
+      LVM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/Stockage/Raid logiciel linux/" title="RAID" class="md-nav__link">
+      RAID
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../AdminSys/Stockage/notions générales/" title="Notions générales" class="md-nav__link">
+      Notions générales
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Code
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Code
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/" title="GIT" class="md-nav__link">
+      GIT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Les bases
+      </label>
+    
+    <a href="./" title="Les bases" class="md-nav__link md-nav__link--active">
+      Les bases
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#afficher" title="Afficher" class="md-nav__link">
+    Afficher
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-savoir-sur-print" title="à savoir sur print() :" class="md-nav__link">
+    à savoir sur print() :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable" title="Variable" class="md-nav__link">
+    Variable
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#il-existe-3-types-de-variables-en-python" title="Il existe 3 types de variables en python" class="md-nav__link">
+    Il existe 3 types de variables en python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input" title="Input()" class="md-nav__link">
+    Input()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculs-et-operations" title="Calculs et opérations" class="md-nav__link">
+    Calculs et opérations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-7-operations-sur-les-nombres" title="Les 7 opérations sur les nombres :" class="md-nav__link">
+    Les 7 opérations sur les nombres :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-2-operations-sur-les-chaines-de-caracteres" title="Les 2 opérations sur les chaînes de caractères :" class="md-nav__link">
+    Les 2 opérations sur les chaînes de caractères :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonctions-mathematiques-standard" title="Fonctions mathématiques standard :" class="md-nav__link">
+    Fonctions mathématiques standard :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commenter-son-code" title="Commenter son code" class="md-nav__link">
+    Commenter son code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#echapper-un-caractere" title="Echapper un caractère" class="md-nav__link">
+    Echapper un caractère
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-fonction-type" title="La fonction type()" class="md-nav__link">
+    La fonction type()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionnelles" title="Conditionnelles" class="md-nav__link">
+    Conditionnelles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-simple" title="if simple :" class="md-nav__link">
+    if simple :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-else" title="if else :" class="md-nav__link">
+    if else :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-elif-elif-else-autant-delif-quon-veut" title="if elif elif ... else : (autant d'elif qu'on veut)" class="md-nav__link">
+    if elif elif ... else : (autant d'elif qu'on veut)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-operateurs-de-comparaison" title="Les opérateurs de comparaison" class="md-nav__link">
+    Les opérateurs de comparaison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-et-logique" title="Le ET logique" class="md-nav__link">
+    Le ET logique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-ou-logique" title="Le OU logique" class="md-nav__link">
+    Le OU logique
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Commentaires" class="md-nav__link md-nav__link--active">
+            Commentaires
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Les_fonctions/" title="Les fonctions" class="md-nav__link">
+      Les fonctions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../les_structures_conditionnelles/" title="Les structures conditionnelles" class="md-nav__link">
+      Les structures conditionnelles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/Généralité/" title="Généralité" class="md-nav__link">
+      Généralité
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      DevOps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        DevOps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Ansible
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Ansible
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DevOps/Ansible/FOR-CEPTION/" title="FOR CEPTION" class="md-nav__link">
+      FOR CEPTION
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#afficher" title="Afficher" class="md-nav__link">
+    Afficher
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-savoir-sur-print" title="à savoir sur print() :" class="md-nav__link">
+    à savoir sur print() :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable" title="Variable" class="md-nav__link">
+    Variable
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#il-existe-3-types-de-variables-en-python" title="Il existe 3 types de variables en python" class="md-nav__link">
+    Il existe 3 types de variables en python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input" title="Input()" class="md-nav__link">
+    Input()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculs-et-operations" title="Calculs et opérations" class="md-nav__link">
+    Calculs et opérations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-7-operations-sur-les-nombres" title="Les 7 opérations sur les nombres :" class="md-nav__link">
+    Les 7 opérations sur les nombres :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-2-operations-sur-les-chaines-de-caracteres" title="Les 2 opérations sur les chaînes de caractères :" class="md-nav__link">
+    Les 2 opérations sur les chaînes de caractères :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonctions-mathematiques-standard" title="Fonctions mathématiques standard :" class="md-nav__link">
+    Fonctions mathématiques standard :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commenter-son-code" title="Commenter son code" class="md-nav__link">
+    Commenter son code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#echapper-un-caractere" title="Echapper un caractère" class="md-nav__link">
+    Echapper un caractère
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-fonction-type" title="La fonction type()" class="md-nav__link">
+    La fonction type()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionnelles" title="Conditionnelles" class="md-nav__link">
+    Conditionnelles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-simple" title="if simple :" class="md-nav__link">
+    if simple :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-else" title="if else :" class="md-nav__link">
+    if else :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-elif-elif-else-autant-delif-quon-veut" title="if elif elif ... else : (autant d'elif qu'on veut)" class="md-nav__link">
+    if elif elif ... else : (autant d'elif qu'on veut)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-operateurs-de-comparaison" title="Les opérateurs de comparaison" class="md-nav__link">
+    Les opérateurs de comparaison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-et-logique" title="Le ET logique" class="md-nav__link">
+    Le ET logique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-ou-logique" title="Le OU logique" class="md-nav__link">
+    Le OU logique
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Commentaires" class="md-nav__link md-nav__link--active">
+            Commentaires
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Anasme/docs/edit/master/docs/Code/python/Les_bases.md" title="Editer cette page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="les-bases">Les bases<a class="headerlink" href="#les-bases" title="Permanent link">&para;</a></h1>
+<h3 id="afficher">Afficher<a class="headerlink" href="#afficher" title="Permanent link">&para;</a></h3>
+<p>Pour afficher un message à lécran on utilise la fonction <strong>print()</strong> :</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span> <span class="s2">&quot;(Bonjour à tous!)&quot;</span>
+</pre></div>
+
+<p><img alt="↪️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/21aa.svg" title=":arrow_right_hook:" /> qui donnera un affichage de texte les plus simple :</p>
+<div class="codehilite"><pre><span></span>Bonjour à tous
+</pre></div>
+
+<h4 id="a-savoir-sur-print">à savoir sur print() :<a class="headerlink" href="#a-savoir-sur-print" title="Permanent link">&para;</a></h4>
+<blockquote>
+<ul>
+<li>Les paramètres de la fonction print sont séparés par des virgules.</li>
+<li>Quand print rencontre un paramètre entre guillemets, il affiche le contenu entre guillemets.</li>
+<li>Quand print rencontre un paramètre sans guillemet, il cherche une variable portant le nom de ce paramètre et il affiche alors la valeur de la variable.</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="c1">#Aller à la ligne</span>
+\<span class="n">n</span>
+<span class="c1">#tabuler</span>
+\<span class="n">t</span>
+<span class="c1">#exemple</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;J&#39;adore</span><span class="se">\n\t</span><span class="s2">Python&quot;</span><span class="p">)</span>
+<span class="c1">#résultat</span>
+<span class="n">J</span><span class="s1">&#39;adore</span>
+        <span class="n">Python</span> <span class="err">!</span>
+</pre></div>
+
+<h3 id="variable">Variable<a class="headerlink" href="#variable" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Les variables sont des endroits où sont stockées les données d'un programme.</p>
+<p>Chaque variable possède un <strong>nom</strong> et une <strong>valeur</strong> </p>
+<p>On appelle <strong>affectation</strong> l'instruction qui permet de donner une valeur à une variable.</p>
+</blockquote>
+<p>Par exemple : </p>
+<div class="codehilite"><pre><span></span><span class="n">prenom</span> <span class="o">=</span> <span class="s2">&quot;Anas&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="s2">&quot;27&quot;</span>
+<span class="n">taille</span> <span class="o">=</span> <span class="s2">&quot;1.70&quot;</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span><span class="n">prenom</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Tu as&quot;</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="s2">&quot;ans et mesures&quot;</span><span class="p">,</span><span class="n">taille</span><span class="p">,</span><span class="s2">&quot;m.&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>Ce bout de code affichera : 
+<div class="codehilite"><pre><span></span>Bonjour Anas !
+Tu as 27 ans et mesures 1.70 m.
+</pre></div></p>
+<h5 id="il-existe-3-types-de-variables-en-python">Il existe 3 types de variables en python<a class="headerlink" href="#il-existe-3-types-de-variables-en-python" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p><strong>"string"</strong> <img alt="➡️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/27a1.svg" title=":arrow_right:" /> de type <strong>chaîne de caractère</strong>, dans notre exemple c'est la variable <strong>"prenom"</strong></p>
+</li>
+<li>
+<p><strong>"int"</strong> <img alt="➡️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/27a1.svg" title=":arrow_right:" /> de type <strong>entier</strong>, dans notre exemple c'est la variable <strong>"age"</strong></p>
+</li>
+<li>
+<p>"<strong>float</strong>" <img alt="➡️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/27a1.svg" title=":arrow_right:" /> de type <strong>nombre à virgule</strong>, dans notre exemple c'est la variable <strong>"taille"</strong></p>
+</li>
+</ul>
+<p><img alt="ℹ️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/2139.svg" title=":information_source:" />le séparateur décimal est le point et non la virgule.</p>
+<h4 id="input">Input()<a class="headerlink" href="#input" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Provoque une interruption dans le pmrogramme courant afin de permettre à l'utilisateur à rentrer des information qui lui sont demandées dans l'invite</p>
+<p><img alt="↪️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/21aa.svg" title=":arrow_right_hook:" />  feed d'une variable </p>
+</blockquote>
+<p>exemple : </p>
+<div class="codehilite"><pre><span></span><span class="n">prenom</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quel est ton prenom ?&quot;</span><span class="p">))</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quel est ton age ?&quot;</span><span class="p">))</span>
+<span class="n">taille</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Quelle est ta taille ?&quot;</span><span class="p">))</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Tu as&quot;</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="s2">&quot;ans et tu mesures&quot;</span><span class="p">,</span><span class="n">taille</span><span class="p">,</span><span class="s2">&quot;m.&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p><div class="codehilite"><pre><span></span>Ce qui donnera : 
+
+Quel est ton prenom ?Anas
+Quel est ton age ?27
+Quelle est ta taille ?1.70
+Bonjour Anas !
+Tu as 27 ans et tu mesures 1.7 m.
+</pre></div>
+Lorsqu'une instruction input() est rencontrée, les 4 étapes suivantes se déroulent dans cet ordre :</p>
+<ol>
+<li><strong>Le programme affiche le message d'invite</strong>.</li>
+<li>Le programme est stoppé et attend la saisie de l'utilisateur**. Il doit valider sa saisie par la touche Entrée.</li>
+<li><strong>Le programme convertit la donnée de l'utilisateur</strong> dans le type attendu (str,int ou float)</li>
+<li><strong>L'affectation = entre cette donnée dans la variable</strong> prévue pour le stockage.</li>
+</ol>
+<h3 id="calculs-et-operations">Calculs et opérations<a class="headerlink" href="#calculs-et-operations" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Python permet de faire des calculs mathématiques assez simplement, avec biensûr la <strong>priorité des opérations</strong></p>
+</blockquote>
+<p>exemple : </p>
+<div class="codehilite"><pre><span></span><span class="n">prixAuKilo</span> <span class="o">=</span> <span class="mf">3.5</span>
+<span class="n">poids</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">prixTotal</span> <span class="o">=</span> <span class="n">prixAuKilo</span> <span class="o">*</span> <span class="n">poids</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Pour un prix au kg de&quot;</span><span class="p">,</span><span class="n">prixAuKilo</span><span class="p">,</span><span class="s2">&quot;€,&quot;</span><span class="p">,</span><span class="n">poids</span><span class="p">,</span><span class="s2">&quot;kg de pommes coûtent&quot;</span><span class="p">,</span><span class="n">prixTotal</span><span class="p">,</span><span class="s2">&quot;€&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>résultat :</p>
+<div class="codehilite"><pre><span></span>Pour un prix au kg de 3.5 €, 3 kg de pommes coûtent 10.5 €
+</pre></div>
+
+<p>autre exemple :</p>
+<p><code>python
+prixInitial = 65.50
+tauxRemise = 30
+remise = prixInitial * tauxRemise / 100
+prixFinal = prixInitial - remise
+print (&quot;Prix initial :&quot;,prixInitial)
+print (&quot;Remise :&quot;,remise)
+print (&quot;Prix soldé :&quot;,prixFinal)</code></p>
+<p>résultat :</p>
+<div class="codehilite"><pre><span></span>Prix initial : 65.5
+Remise : 19.65
+Prix soldé : 45.85
+</pre></div>
+
+<h4 id="les-7-operations-sur-les-nombres">Les 7 opérations sur les nombres :<a class="headerlink" href="#les-7-operations-sur-les-nombres" title="Permanent link">&para;</a></h4>
+<ul>
+<li>l'addition  <code>+</code></li>
+<li>a soustraction  <code>-</code></li>
+<li>la multiplication  <code>*</code></li>
+<li>la puissance  <code>**</code></li>
+<li>le quotient réel  <code>/</code></li>
+<li>le quotient entier <code>//</code></li>
+<li>le reste de la division <code>%</code></li>
+</ul>
+<h4 id="les-2-operations-sur-les-chaines-de-caracteres">Les 2 opérations sur les chaînes de caractères :<a class="headerlink" href="#les-2-operations-sur-les-chaines-de-caracteres" title="Permanent link">&para;</a></h4>
+<ul>
+<li>la concaténation <code>+</code></li>
+<li>la répétition <code>*</code></li>
+</ul>
+<p>Exemple concaténation :</p>
+<div class="codehilite"><pre><span></span><span class="n">nom</span> <span class="o">=</span> <span class="s2">&quot;Fifi &quot;</span>
+<span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;va à la plage&quot;</span>
+<span class="n">phrase</span> <span class="o">=</span> <span class="n">nom</span> <span class="o">+</span> <span class="n">action</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">phrase</span><span class="p">)</span>
+</pre></div>
+
+<p>résultat : </p>
+<div class="codehilite"><pre><span></span>Fifi va à la plage
+</pre></div>
+
+<p>Exemple de répétition :</p>
+<div class="codehilite"><pre><span></span><span class="n">nom</span> <span class="o">=</span> <span class="s2">&quot;Fifi&quot;</span>
+<span class="n">repetition</span> <span class="o">=</span> <span class="n">nom</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">repetition</span><span class="p">)</span>
+</pre></div>
+
+<p>résultat :</p>
+<div class="codehilite"><pre><span></span>FifiFifiFifi
+</pre></div>
+
+<h4 id="fonctions-mathematiques-standard">Fonctions mathématiques standard :<a class="headerlink" href="#fonctions-mathematiques-standard" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Python permet d'importer tout type de modules, dont certain pour des fonctions mathématiques comme la racine carrée (voir <a href="https://docs.python.org/3.4/library/math.html">module math</a> )</p>
+</blockquote>
+<ul>
+<li>pour utiliser un module il faut l'importer et l'utiliser avec une syntaxe précise :</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">#importation du module</span>
+<span class="kn">import</span> <span class="nn">NomDuModule</span>
+<span class="c1">#utilisation du module</span>
+<span class="n">NomDuModule</span><span class="o">.</span><span class="n">NomDeLaFonction</span>
+</pre></div>
+
+<p>exemple : </p>
+<p><em>Un studio carré a une superficie de 40 m carrés. Combien mesure le côté du studio ?</em></p>
+<p><em>On cherche donc la racine carrée de 40.</em></p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> 
+<span class="n">aire</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">cote</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">aire</span><span class="p">)</span> 
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Le côté d&#39;un carré d&#39;aire&quot;</span><span class="p">,</span><span class="n">aire</span><span class="p">,</span><span class="s2">&quot;mxm mesure&quot;</span><span class="p">,</span><span class="n">cote</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
+</pre></div>
+
+<ul>
+<li>En ligne 1, on importe le module math</li>
+<li>En ligne 3, pour utiliser la fonction sqrt du module math, on appelle math.sqrt</li>
+</ul>
+<p>résultat :</p>
+<div class="codehilite"><pre><span></span>Le côté d&#39;un carré d&#39;aire 40 mxm mesure 6.324555320336759 m
+</pre></div>
+
+<p>Pour éviter la lourdeur de la syntaxe math.sqrt, on peut procéder autrement :</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span> 
+<span class="n">aire</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">cote</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">aire</span><span class="p">)</span> 
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Le côté d&#39;un carré d&#39;aire&quot;</span><span class="p">,</span><span class="n">aire</span><span class="p">,</span><span class="s2">&quot;mxm mesure&quot;</span><span class="p">,</span><span class="n">cote</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
+</pre></div>
+
+<ul>
+<li>En ligne 1, on importe la fonction sqrt du module math</li>
+<li>En ligne 3, il devient donc inutile de rappeler que la fonction sqrt est contenue dans le module math.</li>
+</ul>
+<p><img alt="ℹ️" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/2139.svg" title=":information_source:" /> pour en savoir plus sur les modules en général c'est <a href="http://python.lycee.free.fr/modules_utiles.html">ici</a></p>
+<h3 id="commenter-son-code">Commenter son code<a class="headerlink" href="#commenter-son-code" title="Permanent link">&para;</a></h3>
+<p>Citation du site <a href="http://cscircles.cemc.uwaterloo.ca/3-fr/">http://cscircles.cemc.uwaterloo.ca/3-fr/</a> :</p>
+<blockquote>
+<p><em>Un programme informatique ressemble à un langage codé, ce qui est nécessaire pour que l'ordinateur comprenne précisément ce que vos commandes signifient. Mais, étant un langage codé, il est difficile pour les humains de le lire. Pour compenser ce problème, vous êtes autorisés à écrire des notes dans votre programme que l'ordinateur ignore. Ces notes s'appellent des <strong>commentaires</strong>.</em></p>
+<p><em>En Python, une ligne d'instructions qui contient le symbole # (dièse) signifie un commentaire. Le reste de la ligne sera ignorée quand le programme sera exécuté.</em></p>
+</blockquote>
+<p>exemple : </p>
+<div class="codehilite"><pre><span></span><span class="c1"># données de l&#39;exercice :</span>
+<span class="n">conso110</span> <span class="o">=</span> <span class="mf">4.7</span> <span class="c1"># la consommation aux 100 km à 110</span>
+<span class="n">conso130</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># la consommation aux 100 km à 130</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="mi">775</span> <span class="c1"># distance Paris-Marseille</span>
+<span class="n">coutLitreDiesel</span> <span class="o">=</span> <span class="mf">1.39</span> <span class="c1"># en août 2014</span>
+
+<span class="c1"># calcul de la surconsommation</span>
+<span class="c1"># excédent de consommation sur le trajet PM en roulant à 130 plutôt qu&#39;à 110</span>
+<span class="n">surconsommation</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">*</span> <span class="p">(</span><span class="n">conso130</span> <span class="o">-</span> <span class="n">conso110</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+
+<span class="c1"># calcul du surcoût</span>
+<span class="c1"># surcoût en roulant à 130 plutôt qu&#39;à 110</span>
+<span class="n">surcout</span> <span class="o">=</span> <span class="n">surconsommation</span> <span class="o">*</span> <span class="n">coutLitreDiesel</span>
+
+<span class="c1"># affichage</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Sur le trajet Paris-Marseille de&quot;</span><span class="p">,</span><span class="n">distance</span><span class="p">,</span><span class="s2">&quot;kms.&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;En roulant à 130 km/h de moyenne plutôt qu&#39;à 110&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Vous consommerez&quot;</span><span class="p">,</span><span class="n">surconsommation</span><span class="p">,</span><span class="s2">&quot;litres de plus&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Cela vous coûtera&quot;</span><span class="p">,</span><span class="n">surcout</span><span class="p">,</span><span class="s2">&quot;€ de plus&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>Les lignes avec des "#" sont des commentaires et donc invisible à l'exécution du script, ces commentaires servent uniquement à la compréhension du code pour les futurs développeurs :)</strong></p>
+<h3 id="echapper-un-caractere">Echapper un caractère<a class="headerlink" href="#echapper-un-caractere" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>La présence de l'antislash  avant un caractère permet de le protégé. Il doit être affiché comme tel.
+Le couple \" est appelé une <strong>séquence d'échappement</strong>.</p>
+</blockquote>
+<p>exemple :</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Il a crié </span><span class="se">\&quot;</span><span class="s2">Attention !</span><span class="se">\&quot;</span><span class="s2"> très fort.&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>donnera (et sans erreurs):</p>
+<div class="codehilite"><pre><span></span>Il a crié &quot;Attention !&quot; très fort.
+</pre></div>
+
+<p>Nous venons "d'échapper" le caractère " pour que print() ne l'interprète pas.</p>
+<h3 id="la-fonction-type">La fonction type()<a class="headerlink" href="#la-fonction-type" title="Permanent link">&para;</a></h3>
+<p>Si vous ne vous souvenez plus du type d’une variable, utilisez la fonction <code>type()</code> qui vous le rappellera.</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">int</span><span class="s1">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">float</span><span class="s1">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">str</span><span class="s1">&#39;&gt;</span>
+</pre></div>
+
+<p>Faites bien attention, car pour Python, la valeur <code>2</code> (nombre entier) est différente de <code>2.0</code> (nombre réel), de même que <code>2</code> (nombre entier) est différent de <code>'2'</code> (chaîne de caractères). </p>
+<h2 id="conditionnelles">Conditionnelles<a class="headerlink" href="#conditionnelles" title="Permanent link">&para;</a></h2>
+<h3 id="if-simple">if simple :<a class="headerlink" href="#if-simple" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">instruction</span> <span class="mi">1</span>
+    <span class="n">instruction</span> <span class="mi">2</span>
+    <span class="o">...</span>
+    <span class="n">instruction</span> <span class="n">n</span>
+</pre></div>
+
+<h3 id="if-else">if else :<a class="headerlink" href="#if-else" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">instruction</span> <span class="mi">1</span>
+    <span class="n">instruction</span> <span class="mi">2</span>
+    <span class="o">...</span>
+    <span class="n">instruction</span> <span class="n">n</span>
+<span class="k">else</span> <span class="p">:</span>
+    <span class="n">instruction</span> <span class="mi">1</span>
+    <span class="n">instruction</span> <span class="mi">2</span>
+    <span class="o">...</span>
+    <span class="n">instruction</span> <span class="n">n</span>
+</pre></div>
+
+<h3 id="if-elif-elif-else-autant-delif-quon-veut">if elif elif ... else : (autant d'elif qu'on veut)<a class="headerlink" href="#if-elif-elif-else-autant-delif-quon-veut" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">instruction</span> <span class="mi">1</span>
+    <span class="n">instruction</span> <span class="mi">2</span>
+    <span class="o">...</span>
+    <span class="n">instruction</span> <span class="n">n</span>
+<span class="k">elif</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">instruction</span> <span class="mi">1</span>
+    <span class="n">instruction</span> <span class="mi">2</span>
+    <span class="o">...</span>
+    <span class="n">instruction</span> <span class="n">n</span>
+<span class="k">elif</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">instruction</span> <span class="mi">1</span>
+    <span class="n">instruction</span> <span class="mi">2</span>
+    <span class="o">...</span>
+    <span class="n">instruction</span> <span class="n">n</span>
+<span class="k">elif</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">instruction</span> <span class="mi">1</span>
+    <span class="n">instruction</span> <span class="mi">2</span>
+    <span class="o">...</span>
+    <span class="n">instruction</span> <span class="n">n</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">instruction</span> <span class="mi">1</span>
+    <span class="n">instruction</span> <span class="mi">2</span>
+    <span class="o">...</span>
+    <span class="n">instruction</span> <span class="n">n</span>
+</pre></div>
+
+<blockquote>
+<p>Pour constituer un bloc d'instructions, il faut un en-tête suivi d'instructions décalées par rapport à l'en-tête :</p>
+<ul>
+<li>Dans le cas du if, l'en-tête est constitué du mot-réservé <a href="">if</a>, de la <a href="">condition à vérifier</a>, et « <strong>:</strong> » pour terminer.</li>
+<li>Les instructions du bloc sont indentées par rapport à l'en-tête</li>
+</ul>
+</blockquote>
+<ul>
+<li>​</li>
+</ul>
+<p>::warning Le <a href="https://www.python.org/dev/peps/pep-0008/#indentation">guide de style Python</a> veut que cette indentation soit de <strong>4 espaces</strong>.</p>
+<h3 id="les-operateurs-de-comparaison">Les opérateurs de comparaison<a class="headerlink" href="#les-operateurs-de-comparaison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Opérateur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>égal</td>
+<td>==</td>
+</tr>
+<tr>
+<td>Différent</td>
+<td>!=</td>
+</tr>
+<tr>
+<td>Strictement supérieur</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>Strictement inférieur</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>Supérieur ou égal</td>
+<td>&gt;=</td>
+</tr>
+<tr>
+<td>Inférieur ou égal</td>
+<td>&lt;=</td>
+</tr>
+</tbody>
+</table>
+<h3 id="le-et-logique">Le ET logique<a class="headerlink" href="#le-et-logique" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Vérifier que deux conditions sont simultanément réalisées :  <code>and</code></p>
+</blockquote>
+<p>exemple : </p>
+<div class="codehilite"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">poids</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">11</span> <span class="ow">and</span> <span class="n">poids</span> <span class="o">&gt;=</span> <span class="mi">45</span><span class="p">:</span>
+   <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Manège autorisé&quot;</span><span class="p">)</span>
+</pre></div>
+
+<h3 id="le-ou-logique">Le OU logique<a class="headerlink" href="#le-ou-logique" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Vérifier que sur deux conditions, une ou moins est réalisées :  <code>or</code></p>
+</blockquote>
+<p>exemple :</p>
+<div class="codehilite"><pre><span></span><span class="n">typeVehicule</span> <span class="o">=</span> <span class="s2">&quot;Autocar&quot;</span>
+
+<span class="k">if</span> <span class="n">typeVehicule</span> <span class="o">==</span> <span class="s2">&quot;Autocar&quot;</span> <span class="ow">or</span> <span class="n">typeVehicule</span> <span class="o">==</span> <span class="s2">&quot;Véhicule particulier&quot;</span><span class="p">:</span>
+   <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Vous pouvez entrer dans le tunnel&quot;</span><span class="p">)</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+  <h2 id="__comments">Commentaires</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://anasme.github.io/docs/Code/python/Les_bases/";
+      this.page.identifier =
+        "/Code/python/Les_bases/";
+    };
+    (function() {
+      var d = document, s = d.createElement("script");
+      s.src = "//anasmedocs.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../git/" title="GIT" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Précédent
+                </span>
+                GIT
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Les_fonctions/" title="Les fonctions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Suivant
+                </span>
+                Les fonctions
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © Anas Asmi 2018
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/anasme" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/anasasmi" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/anasasmi" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.30f6b8b1.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.fr.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"../../.."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-112015225-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

@@ -2,42 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://anasme.github.io/docs/</loc>
-     <lastmod>2018-08-17</lastmod>
+     <lastmod>2018-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://anasme.github.io/docs/AdminSys/hardening/</loc>
-     <lastmod>2018-08-17</lastmod>
+     <loc>https://anasme.github.io/docs/AdminSys/OpenVPN/</loc>
+     <lastmod>2018-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://anasme.github.io/docs/AdminSys/BDD/Environnement Réseau/</loc>
-     <lastmod>2018-08-17</lastmod>
+     <lastmod>2018-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://anasme.github.io/docs/AdminSys/BDD/MySQL/</loc>
-     <lastmod>2018-08-17</lastmod>
+     <lastmod>2018-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://anasme.github.io/docs/AdminSys/BDD/PostgreSQL/</loc>
-     <lastmod>2018-08-17</lastmod>
+     <lastmod>2018-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://anasme.github.io/docs/Code/bash/</loc>
-     <lastmod>2018-08-17</lastmod>
+     <loc>https://anasme.github.io/docs/AdminSys/Stockage/GlusterFS/</loc>
+     <lastmod>2018-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://anasme.github.io/docs/Code/python/</loc>
-     <lastmod>2018-08-17</lastmod>
+     <loc>https://anasme.github.io/docs/AdminSys/Stockage/LVM/</loc>
+     <lastmod>2018-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://anasme.github.io/docs/DevOps/ansible/</loc>
-     <lastmod>2018-08-17</lastmod>
+     <loc>https://anasme.github.io/docs/AdminSys/Stockage/Raid logiciel linux/</loc>
+     <lastmod>2018-09-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://anasme.github.io/docs/AdminSys/Stockage/notions générales/</loc>
+     <lastmod>2018-09-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://anasme.github.io/docs/Code/git/</loc>
+     <lastmod>2018-09-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://anasme.github.io/docs/Code/python/Les_bases/</loc>
+     <lastmod>2018-09-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://anasme.github.io/docs/Code/python/Les_fonctions/</loc>
+     <lastmod>2018-09-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://anasme.github.io/docs/Code/python/les_structures_conditionnelles/</loc>
+     <lastmod>2018-09-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://anasme.github.io/docs/Code/shell/Généralité/</loc>
+     <lastmod>2018-09-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://anasme.github.io/docs/DevOps/Ansible/FOR-CEPTION/</loc>
+     <lastmod>2018-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
